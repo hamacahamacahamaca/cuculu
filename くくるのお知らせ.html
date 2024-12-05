@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>くくるからのお知らせ</title>
+    <!-- CSSのリンク -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 全体の中央揃え */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center; /* 全体を中央揃え */
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* h1スタイル */
+        h1 {
+            color: blue; /* 青色で目立たせる */
+        }
+
+        /* リンクのスタイル */
+        a {
+            color: #0073e6;
+            text-decoration: none;
+            display: inline-block; /* 中央揃えでも整列させやすい */
+            margin: 5px 0; /* リンク間の余白 */
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 注目メッセージのスタイル */
+        .highlight {
+            color: red; /* 赤色で注目 */
+            font-weight: bold; /* 太字 */
+            font-size: 1.8em; /* 大きめの文字サイズ */
+            margin-top: 30px; /* 上部の余白を追加 */
+            animation: pulse 1.5s infinite; /* ゆっくりした拡大縮小のアニメーション */
+        }
+
+        /* 拡大縮小アニメーション */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1); /* 元のサイズ */
+            }
+            50% {
+                transform: scale(1.1); /* 少し拡大 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>くくるからのお知らせ</h1>
+    <p>いつもお世話になっております。</p>
+    <p>このページでは、くくるからの最新のお知らせをお届けします。</p>
+
+    <!-- クルー向けお知らせリンク -->
+    <div>
+        <p>
+            <a href="http://localhost:63342/unicodedata.pyd/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8/%E3%82%AF%E3%83%AB%E3%83%BC%E7%8F%BE%E5%A0%B4%E6%A4%9C%E7%B4%A2.html?_ijt=pc8iotl4mn427a78g8gqaipmuk&_ij_reload=RELOAD_ON_SAVE">
+                クルーの皆様へ（現場検索ツール）
+            </a>
+        </p>
+        <p>
+            <a href="http://localhost:63342/unicodedata.pyd/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8/%E5%B9%B4%E6%9C%AB%E5%B9%B4%E5%A7%8B%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B.html?_ijt=o5v4kr03bfd2km0meag1g5ipbg&_ij_reload=RELOAD_ON_SAVE">
+                年末年始のお知らせ（✨特別手当の期間拡大✨）
+            </a>
+        </p>
+        <p>
+            <a href="http://localhost:63342/unicodedata.pyd/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8/%E3%82%B7%E3%83%95%E3%83%88.html?_ijt=7nlo289kijhaut67iv13qcdd6s&_ij_reload=RELOAD_ON_SAVE">
+                1月前半のシフト提出願い
+            </a>
+        </p>
+        <p>
+            <a href="http://localhost:63342/unicodedata.pyd/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8/%E3%82%B2%E3%82%B9%E3%83%88%E6%A7%98%E3%81%AE%E8%8D%B7%E7%89%A9%E5%85%88%E7%BD%AE%E3%81%8D%E3%81%AB%E9%96%A2%E3%81%97%E3%81%A6.html?_ijt=h0c4amkh9hq2m0n7560bgpfu13&_ij_reload=RELOAD_ON_SAVE">
+                清掃中のゲスト様荷物先置きに関して
+            </a>
+        </p>
+    </div>
+
+    <!-- 注目メッセージ -->
+    <p class="highlight">随時更新中！！乞うご期待！！</p>
+</body>
+</html>
