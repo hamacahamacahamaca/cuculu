@@ -6,8 +6,108 @@
     <title>清掃中のゲスト様荷物先置きに関して</title>
     <meta name="description" content="清掃中のゲスト様荷物先置きに関するお知らせ。クルーの皆様への重要な情報を提供します。">
     <meta name="keywords" content="清掃, ゲスト, 荷物先置き, お知らせ, クルー">
-    <!-- 外部CSSのリンク -->
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- 内部CSSの追加 -->
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* ヘッダーのスタイル */
+        header {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #0073e6;
+            font-size: 2em;
+            margin: 0;
+        }
+        
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+        }
+        
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left; /* セクション内のテキストを左揃えに */
+        }
+        
+        p {
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        
+        .highlight {
+            color: #d32f2f; /* 視認性の高い赤色 */
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        
+        /* オーダーリストのスタイル */
+        ol {
+            text-align: left;
+            padding-left: 20px;
+        }
+        
+        /* ホームに戻るボタンのスタイル */
+        .home-link {
+            display: inline-block;
+            background-color: #0073e6;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 30px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        
+        .home-link:hover {
+            background-color: #005bb5;
+        }
+        
+        /* フッターのスタイル */
+        footer {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666666;
+        }
+
+        /* レスポンシブデザインの強化 */
+        @media (max-width: 600px) {
+            .home-link {
+                padding: 8px 16px;
+                font-size: 1em;
+            }
+            
+            .highlight {
+                font-size: 1em;
+            }
+        }
+
+        /* アニメーションを減らすユーザー向け設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .highlight {
+                animation: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -37,83 +137,3 @@
     </footer>
 </body>
 </html>
-
-/* 基本スタイル */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* ヘッダーのスタイル */
-header {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-h1 {
-    color: #0073e6;
-    font-size: 2em;
-    margin: 0;
-}
-
-/* メインコンテンツのスタイル */
-main {
-    flex: 1;
-}
-
-section {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left; /* セクション内のテキストを左揃えに */
-}
-
-p {
-    line-height: 1.8;
-    margin: 10px 0;
-}
-
-.highlight {
-    color: #d32f2f; /* 視認性の高い赤色 */
-    font-weight: bold;
-    font-size: 1.2em;
-    margin: 20px 0;
-}
-
-/* オーダーリストのスタイル */
-ol {
-    text-align: left;
-    padding-left: 20px;
-}
-
-/* ホームに戻るボタンのスタイル */
-.home-link {
-    display: inline-block;
-    background-color: #0073e6;
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    margin-top: 30px;
-    border-radius: 5px;
-    font-size: 1.2em;
-    transition: background-color 0.3s;
-}
-
-.home-link:hover {
-    background-color: #005bb5;
-}
-
-/* フッターのスタイル */
-footer {
-    width: 100%;
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #666666;
-}
