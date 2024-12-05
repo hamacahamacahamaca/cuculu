@@ -6,8 +6,106 @@
     <title>くくるからのお知らせ</title>
     <meta name="description" content="くくるからのお知らせページ。最新情報や重要なお知らせをお届けします。">
     <meta name="keywords" content="くくる, お知らせ, 清掃, シフト">
-    <!-- 外部CSSのリンク -->
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- 内部CSSの追加 -->
+    <style>
+        /* 全体のスタイル */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center; /* テキストの中央揃え */
+            background-color: #f9f9f9; /* 背景色を追加 */
+        }
+        
+        /* ヘッダーのスタイル */
+        header {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #1a73e8; /* よりソフトな青色 */
+            font-size: 2em;
+            margin: 0;
+        }
+        
+        /* ナビゲーションのスタイル */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        nav li {
+            margin: 10px 0;
+        }
+        
+        nav a {
+            color: #0073e6;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #0073e6;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #0073e6;
+            color: #ffffff;
+        }
+        
+        /* 注目メッセージのスタイル */
+        .highlight {
+            color: #d32f2f; /* 視認性の高い赤色 */
+            font-weight: bold;
+            font-size: 1.8em;
+            margin-top: 30px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        /* 拡大縮小アニメーション */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        /* フッターのスタイル */
+        footer {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666666;
+        }
+        
+        /* レスポンシブデザインの強化 */
+        @media (max-width: 600px) {
+            nav a {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+            
+            .highlight {
+                font-size: 1.5em;
+            }
+        }
+        
+        /* アニメーションを減らすユーザー向け設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .highlight {
+                animation: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,12 +116,12 @@
         <p>このページでは、くくるからの最新のお知らせをお届けします。</p>
 
         <!-- ナビゲーション -->
-        <nav>
+        <nav aria-label="主要ナビゲーション">
             <ul>
-                <li><a href="lookup.html">クルーの皆様へ（現場検索ツール）</a></li>
-                <li><a href="new-years-holidays.html">年末年始のお知らせ（✨特別手当の期間拡大✨）</a></li>
-                <li><a href="shift.html">1月前半のシフト提出願い</a></li>
-                <li><a href="baggage.html">清掃中のゲスト様荷物先置きに関して</a></li>
+                <li><a href="lookup.html" title="現場検索ツールを利用する">クルーの皆様へ（現場検索ツール）</a></li>
+                <li><a href="new-years-holidays.html" title="年末年始のお知らせを見る">年末年始のお知らせ（✨特別手当の期間拡大✨）</a></li>
+                <li><a href="shift.html" title="1月前半のシフトを提出する">1月前半のシフト提出願い</a></li>
+                <li><a href="baggage.html" title="清掃中のゲスト様荷物先置きについて確認">清掃中のゲスト様荷物先置きに関して</a></li>
             </ul>
         </nav>
 
@@ -35,81 +133,3 @@
     </footer>
 </body>
 </html>
-
-/* 全体のスタイル */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    text-align: center; /* テキストの中央揃え */
-    background-color: #f9f9f9; /* 背景色を追加 */
-}
-
-/* ヘッダーのスタイル */
-header {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-h1 {
-    color: #1a73e8; /* よりソフトな青色 */
-    font-size: 2em;
-    margin: 0;
-}
-
-/* ナビゲーションのスタイル */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-nav li {
-    margin: 10px 0;
-}
-
-nav a {
-    color: #0073e6;
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px 20px;
-    border: 1px solid #0073e6;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-nav a:hover {
-    background-color: #0073e6;
-    color: #ffffff;
-}
-
-/* 注目メッセージのスタイル */
-.highlight {
-    color: #d32f2f; /* 視認性の高い赤色 */
-    font-weight: bold;
-    font-size: 1.8em;
-    margin-top: 30px;
-    animation: pulse 1.5s infinite;
-}
-
-/* 拡大縮小アニメーション */
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-/* フッターのスタイル */
-footer {
-    width: 100%;
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #666666;
-}
