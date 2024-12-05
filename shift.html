@@ -4,72 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>シフト提出のお願い</title>
-    <style>
-        /* 基本スタイル */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #0073e6;
-        }
-
-        p {
-            line-height: 1.6;
-        }
-
-        .highlight {
-            color: red;
-            font-weight: bold;
-        }
-
-        .form-link, .home-link {
-            display: inline-block;
-            background-color: #0073e6;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            border-radius: 5px;
-            font-size: 1.2em;
-        }
-
-        .form-link:hover, .home-link:hover {
-            background-color: #005bb5;
-        }
-
-        .buttons {
-            margin-top: 30px;
-        }
-    </style>
+    <meta name="description" content="年末年始のシフト提出に関するお知らせ。クルーの皆様にシフト提出のお願いと清掃希望日提出フォームへのリンクを提供します。">
+    <meta name="keywords" content="シフト提出, 清掃希望日, クルー, 年末年始, くくる">
+    <!-- 外部CSSのリンク -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>シフト提出のお願い</h1>
+    <header>
+        <h1>シフト提出のお願い</h1>
+    </header>
+    <main>
+        <section>
+            <p>くくるクルーの皆様へ</p>
+            <p>おはようございます。</p>
+            <p>
+                年末年始のシフトについて、1月の前半のシフトについて現状わかる範囲でご提出をお願い致します。
+            </p>
+            <p>ご協力宜しくお願い致します。</p>
+        </section>
 
-    <p>くくるクルーの皆様へ</p>
-    <p>おはようございます。</p>
-    <p>
-        年末年始のシフトについて、1月の前半のシフトについて<br>
-        現状わかる範囲でご提出をお願い致します。
-    </p>
-    <p>ご協力宜しくお願い致します。</p>
+        <section>
+            <h2 class="highlight">☆ 清掃希望日提出フォーム</h2>
+            <p>1日〜15日分</p>
+            <p>提出期限：前の月の20日まで</p>
 
-    <h2 class="highlight">☆ 清掃希望日提出フォーム</h2>
-    <p>1日〜15日分</p>
-    <p>提出期限：前の月の20日まで</p>
-
-    <!-- ボタンセクション -->
-    <div class="buttons">
-        <!-- Googleフォームのリンク -->
-        <a href="https://goo.gl/forms/hruGEiLeQxfyATF83" target="_blank" class="form-link">清掃希望日提出フォームはこちら</a>
-        <br>
-        <!-- ホームに戻るボタン -->
-        <a href="index.html">ホームに戻る</a>
-    </div>
+            <!-- ボタンセクション -->
+            <div class="buttons">
+                <!-- Googleフォームのリンク -->
+                <a href="https://goo.gl/forms/hruGEiLeQxfyATF83" target="_blank" rel="noopener noreferrer" class="form-link">清掃希望日提出フォームはこちら</a>
+                <br>
+                <!-- ホームに戻るボタン -->
+                <a href="index.html" class="home-link">ホームに戻る</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 くくるから</p>
+    </footer>
 </body>
 </html>
+
+/* 基本スタイル */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #0073e6;
+    font-size: 2.5em;
+    margin: 0;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+}
+
+section {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: left;
+}
+
+h2 {
+    color: #0073e6;
+}
+
+p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.highlight {
+    color: #d32f2f; /* 視認性の高い赤色 */
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.buttons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.form-link, .home-link {
+    display: inline-block;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.form-link:hover, .home-link:hover {
+    background-color: #005bb5;
+}
+
+/* フッターのスタイル */
+footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #666666;
+}
