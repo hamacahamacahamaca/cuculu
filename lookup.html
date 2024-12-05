@@ -32,6 +32,7 @@
             color: #0073e6;
             font-size: 2em;
             margin: 0;
+            text-align: center;
         }
         
         /* メインコンテンツのスタイル */
@@ -41,13 +42,24 @@
         
         section {
             max-width: 800px;
-            margin: 0 auto;
-            text-align: left; /* セクション内のテキストを左揃えに */
+            margin: 0 auto 40px;
+            text-align: center; /* セクション内のテキストを中央揃えに */
+        }
+        
+        h2 {
+            color: #0073e6;
         }
         
         p {
             line-height: 1.8;
             margin: 10px 0;
+        }
+        
+        .highlight {
+            color: #d32f2f; /* 視認性の高い赤色 */
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-top: 20px;
         }
         
         .links {
@@ -59,7 +71,7 @@
             color: #0073e6;
             text-decoration: none;
             font-size: 1.1em;
-            display: inline-block;
+            display: block; /* リンクをブロック要素にして改行 */
             margin: 10px 0;
         }
         
@@ -78,6 +90,7 @@
             color: white;
             text-decoration: none;
             padding: 10px 20px;
+            margin: 10px 5px;
             border-radius: 5px;
             font-size: 1.2em;
             transition: background-color 0.3s;
@@ -134,7 +147,6 @@
             <!-- リンク一覧 -->
             <div class="links">
                 <a href="https://tayori.com/q/cuculu-cleaning" target="_blank" rel="noopener noreferrer" title="現場検索ツールを開く">現場検索ツールはこちら</a>
-                </div>
                 <a href="http://tayori.com" target="_blank" rel="noopener noreferrer" title="Tayoriトップページを開く">Tayoriトップページ</a>
             </div>
 
