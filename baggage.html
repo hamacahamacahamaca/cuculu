@@ -4,63 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>清掃中のゲスト様荷物先置きに関して</title>
-    <style>
-        /* 基本スタイル */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #0073e6;
-        }
-
-        p {
-            line-height: 1.8;
-            margin: 10px 0;
-        }
-
-        .highlight {
-            color: red;
-            font-weight: bold;
-        }
-
-        .home-link {
-            display: inline-block;
-            background-color: #0073e6;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin-top: 30px;
-            border-radius: 5px;
-            font-size: 1.2em;
-        }
-
-        .home-link:hover {
-            background-color: #005bb5;
-        }
-    </style>
+    <meta name="description" content="清掃中のゲスト様荷物先置きに関するお知らせ。クルーの皆様への重要な情報を提供します。">
+    <meta name="keywords" content="清掃, ゲスト, 荷物先置き, お知らせ, クルー">
+    <!-- 外部CSSのリンク -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>清掃中のゲスト様荷物先置きに関して</h1>
+    <header>
+        <h1>清掃中のゲスト様荷物先置きに関して</h1>
+    </header>
+    <main>
+        <section>
+            <p>清掃クルーの皆様へ</p>
+            <p>いつも清掃にご尽力いただきありがとうございます。</p>
+            <p>本日のお知らせはお荷物先置きに関してです。</p>
 
-    <p>清掃クルーの皆様へ</p>
-    <p>いつも清掃にご尽力いただきありがとうございます。</p>
-    <p>本日のお知らせはお荷物先置きに関してです。</p>
+            <ol>
+                <li>ゲスト様には13時からお荷物のみ先にお預かりできる旨をお伝えしています。そのため、ゲスト様がお見えになる場合があります。</li>
+                <li>今後、アサイン表のメモに記載はなくなります。</li>
+            </ol>
 
-    <p>① ゲスト様には13時からお荷物のみ先にお預かりできる旨をお伝えしています。</p>
-    <p>そのため、ゲスト様がお見えになる場合があります。</p>
-    <p class="highlight">※あくまでもお荷物のみで、清掃中の入室は不可です。</p>
+            <p class="highlight">※あくまでもお荷物のみで、清掃中の入室は不可です。</p>
 
-    <p>② 今後、アサイン表のメモに記載はなくなります。</p>
+            <p>ご協力宜しくお願い致します。</p>
+        </section>
 
-    <p>ご協力宜しくお願い致します。</p>
-
-    <!-- ホームに戻るボタン -->
-    <a href="index.html">ホームに戻る</a>
+        <!-- ホームに戻るボタン -->
+        <a href="index.html" class="home-link">ホームに戻る</a>
+    </main>
+    <footer>
+        <p>&copy; 2024 くくるから</p>
+    </footer>
 </body>
 </html>
+
+/* 基本スタイル */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ヘッダーのスタイル */
+header {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #0073e6;
+    font-size: 2em;
+    margin: 0;
+}
+
+/* メインコンテンツのスタイル */
+main {
+    flex: 1;
+}
+
+section {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* セクション内のテキストを左揃えに */
+}
+
+p {
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+.highlight {
+    color: #d32f2f; /* 視認性の高い赤色 */
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+/* オーダーリストのスタイル */
+ol {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* ホームに戻るボタンのスタイル */
+.home-link {
+    display: inline-block;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.home-link:hover {
+    background-color: #005bb5;
+}
+
+/* フッターのスタイル */
+footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #666666;
+}
