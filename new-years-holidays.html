@@ -6,8 +6,164 @@
     <title>年末年始のお知らせ</title>
     <meta name="description" content="くくるからの年末年始に関するお知らせ。特別手当の支給条件や期間拡大、お年玉手当の詳細をお伝えします。">
     <meta name="keywords" content="くくる, 年末年始, お知らせ, 特別手当, お年玉手当, 清掃クルー">
-    <!-- 外部CSSのリンク -->
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- 内部CSSの追加 -->
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center; /* 全体のテキストを中央揃え */
+        }
+        
+        /* ヘッダーのスタイル */
+        header {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #0073e6;
+            font-size: 2.5em;
+            margin: 0;
+            text-align: center;
+        }
+        
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+        }
+        
+        section {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: left; /* セクション内のテキストを左揃えに */
+        }
+        
+        h2, h3 {
+            color: #0073e6;
+        }
+        
+        p {
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        
+        .conditions {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        
+        .highlight {
+            background-color: #fff8dc;
+            border: 1px solid #ffd700;
+            padding: 10px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .important {
+            color: #d32f2f; /* 視認性の高い赤色 */
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+        
+        table caption {
+            caption-side: top;
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        /* ホームに戻るボタンのスタイル */
+        .home-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .home-link {
+            display: inline-block;
+            background-color: #0073e6;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        
+        .home-link:hover {
+            background-color: #005bb5;
+        }
+        
+        /* フッターのスタイル */
+        footer {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666666;
+        }
+
+        /* レスポンシブデザインの強化 */
+        @media (max-width: 600px) {
+            .home-link {
+                padding: 8px 16px;
+                font-size: 1em;
+            }
+            
+            .highlight {
+                font-size: 1em;
+            }
+            
+            table, th, td {
+                font-size: 0.9em;
+            }
+        }
+
+        /* アニメーションを減らすユーザー向け設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .highlight {
+                animation: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -90,7 +246,7 @@
 
         <!-- ホームに戻るボタン -->
         <div class="home-button">
-            <a href="index.html" class="home-link">ホームに戻る</a>
+            <a href="index.html" class="home-link" title="ホームページに戻る">ホームに戻る</a>
         </div>
     </main>
     <footer>
@@ -98,132 +254,3 @@
     </footer>
 </body>
 </html>
-
-/* 基本スタイル */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-header {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-h1 {
-    color: #0073e6;
-    font-size: 2.5em;
-    margin: 0;
-    text-align: center;
-}
-
-main {
-    flex: 1;
-}
-
-section {
-    max-width: 800px;
-    margin: 0 auto 40px;
-    text-align: left;
-}
-
-h2, h3 {
-    color: #0073e6;
-}
-
-p {
-    line-height: 1.8;
-    margin: 10px 0;
-}
-
-.conditions {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin: 10px 0;
-}
-
-.note {
-    margin-top: 20px;
-    font-size: 0.9em;
-    color: #555;
-}
-
-.highlight {
-    background-color: #fff8dc;
-    border: 1px solid #ffd700;
-    padding: 10px;
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.important {
-    color: #d32f2f; /* 視認性の高い赤色 */
-    font-weight: bold;
-}
-
-table {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background-color: #fff;
-}
-
-table caption {
-    caption-side: top;
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-th {
-    background-color: #0073e6;
-    color: white;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* ホームに戻るボタンのスタイル */
-.home-button {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.home-link {
-    display: inline-block;
-    background-color: #0073e6;
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1.2em;
-    transition: background-color 0.3s;
-}
-
-.home-link:hover {
-    background-color: #005bb5;
-}
-
-/* フッターのスタイル */
-footer {
-    width: 100%;
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #666666;
-}
