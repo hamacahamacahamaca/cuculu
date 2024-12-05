@@ -64,7 +64,9 @@
         
         .buttons {
             margin-top: 30px;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* リンクを中央揃えに */
         }
         
         .form-link, .home-link {
@@ -73,7 +75,7 @@
             color: white;
             text-decoration: none;
             padding: 10px 20px;
-            margin: 10px 5px;
+            margin: 10px 5px; /* リンク間のスペース */
             border-radius: 5px;
             font-size: 1.2em;
             transition: background-color 0.3s;
@@ -135,7 +137,6 @@
             <div class="buttons">
                 <!-- Googleフォームのリンク -->
                 <a href="https://goo.gl/forms/hruGEiLeQxfyATF83" target="_blank" rel="noopener noreferrer" class="form-link" title="清掃希望日提出フォームを開く">清掃希望日提出フォームはこちら</a>
-                <br>
                 <!-- ホームに戻るボタン -->
                 <a href="index.html" class="home-link" title="ホームページに戻る">ホームに戻る</a>
             </div>
