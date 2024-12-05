@@ -4,52 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>クルーの皆様へ（現場検索ツールページ）</title>
-    <style>
-        /* 基本スタイル */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #0073e6;
-        }
-
-        a {
-            color: #0073e6;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <meta name="description" content="現場でのお困りごとや質問事項を検索できるツールページ。クルーの皆様の業務効率をサポートします。">
+    <meta name="keywords" content="クルー, 現場検索ツール, 清掃, お知らせ, サポート">
+    <!-- 外部CSSのリンク -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>クルーの皆様へ</h1>
-    <p>いつもご協力ありがとうございます。</p>
-    <p>
-        今回、現場でのお困りごと、質問事項などを検索できるツールを作成しました。
-        是非、今後活用していただければと思います。
-    </p>
-    <p>
-        各物件ラインのノートのURLを追記してありますのでご確認お願い致します。
-    </p>
+    <header>
+        <h1>クルーの皆様へ</h1>
+    </header>
+    <main>
+        <section>
+            <p>いつもご協力ありがとうございます。</p>
+            <p>
+                今回、現場でのお困りごとや質問事項を検索できるツールを作成しました。
+                是非、今後活用していただければと思います。
+            </p>
+            <p>
+                各物件ラインのノートのURLを追記してありますので、ご確認お願い致します。
+            </p>
 
-    <!-- リンク一覧 -->
-    <div>
-        <a href="https://tayori.com/q/cuculu-cleaning" target="_blank">現場検索ツールはこちら</a>
-        <br>
-        <a href="http://tayori.com" target="_blank">Tayoriトップページ</a>
-    </div>
+            <!-- リンク一覧 -->
+            <div class="links">
+                <a href="https://tayori.com/q/cuculu-cleaning" target="_blank" rel="noopener noreferrer">現場検索ツールはこちら</a>
+                <br>
+                <a href="http://tayori.com" target="_blank" rel="noopener noreferrer">Tayoriトップページ</a>
+            </div>
 
-    <!-- ホームに戻る -->
-    <p>
-        <a href="index.html">ホームに戻る</a>
-    </p>
+            <!-- ホームに戻るボタン -->
+            <div class="home-button">
+                <a href="index.html" class="home-link">ホームに戻る</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 くくるから</p>
+    </footer>
 </body>
 </html>
+
+/* 基本スタイル */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center; /* 全体のテキストを中央揃え */
+}
+
+/* ヘッダーのスタイル */
+header {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #0073e6;
+    font-size: 2em;
+    margin: 0;
+}
+
+/* メインコンテンツのスタイル */
+main {
+    flex: 1;
+}
+
+section {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* セクション内のテキストを左揃えに */
+}
+
+p {
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+.links a {
+    color: #0073e6;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.home-button {
+    margin-top: 30px;
+}
+
+.home-link {
+    display: inline-block;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.home-link:hover {
+    background-color: #005bb5;
+}
+
+/* フッターのスタイル */
+footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #666666;
+}
