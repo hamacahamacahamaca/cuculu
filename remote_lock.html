@@ -4,74 +4,325 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>施錠忘れ防止のお願い</title>
+    <meta name="description" content="施錠忘れ防止のための重要なお知らせ。清掃クルーの皆様への具体的な指示と注意事項を含みます。">
+    <meta name="keywords" content="施錠忘れ, 防止, 清掃, お知らせ, 安全">
+    
+    <!-- Google Fontsの追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesomeの追加（オプション） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- 内部CSSの追加 -->
     <style>
+        /* CSS変数の定義 */
+        :root {
+            --color-background: #f9f9f9;
+            --color-text: #333333;
+            --color-primary: #d9534f; /* 赤色 */
+            --color-secondary: #ff5252; /* 明るい赤 */
+            --color-highlight-bg: #fff8dc; /* やわらかい黄色 */
+            --color-button-bg: #d9534f;
+            --color-button-hover: #c9302c;
+            --color-link-bg: #d9534f;
+            --color-link-hover: #c9302c;
+            --color-card-bg: #ffffff;
+            --color-card-shadow: rgba(0, 0, 0, 0.1);
+            --font-family: 'Roboto', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        /* ダークテーマ用の変数 */
+        body.dark-theme {
+            --color-background: #121212;
+            --color-text: #ffffff;
+            --color-primary: #ff5252;
+            --color-secondary: #ff4081;
+            --color-highlight-bg: #fbc02d;
+            --color-button-bg: #555555;
+            --color-button-hover: #333333;
+            --color-link-bg: #ff5252;
+            --color-link-hover: #e040fb;
+            --color-card-bg: #1e1e1e;
+            --color-card-shadow: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 基本スタイル */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f9f9f9;
-            color: #333;
-            margin: 20px;
-        }
-        .container {
-            background: #fff;
+            font-family: var(--font-family);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
-        h1, h2 {
-            color: #d9534f;
+
+        /* ヘッダーのスタイル */
+        header {
+            width: 100%;
+            margin-bottom: 20px;
         }
-        h2 {
-            border-bottom: 2px solid #d9534f;
+
+        h1 {
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin: 0;
+            padding: 10px 0;
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
+        }
+
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: var(--color-button-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-theme-toggle:hover {
+            background-color: var(--color-button-hover);
+            transform: rotate(20deg);
+        }
+
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: var(--color-card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+        }
+
+        p {
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+
+        h2, h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--color-primary);
             padding-bottom: 5px;
         }
-        .important {
-            color: #d9534f;
+
+        h3 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--color-primary);
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background-color: var(--color-highlight-bg);
+            border: 1px solid #ffd700;
+            padding: 10px;
+            display: inline-block;
             font-weight: bold;
         }
+
+        .important {
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+
         .emoji {
             font-size: 1.2em;
         }
+
         img {
             max-width: 100%;
             height: auto;
             border: 2px solid #ddd;
             border-radius: 8px;
             margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        ul {
-            margin-left: 20px;
+
+        /* ボタンセクションのスタイル */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .button {
+            background-color: var(--color-link-bg);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color var(--transition-speed);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: var(--color-link-hover);
+        }
+
+        /* フッターのスタイル */
+        footer {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--color-text);
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            .btn-theme-toggle {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h2, h3 {
+                font-size: 1.5rem;
+                border-bottom: 1px solid var(--color-primary);
+            }
+
+            table, th, td {
+                font-size: 0.9em;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .highlight {
+                font-size: 1em;
+            }
+        }
+
+        /* アニメーションを減らすユーザー向け設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .highlight {
+                animation: none;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">
+        🌓
+    </button>
+
+    <header>
         <h1>施錠忘れ防止のお願い</h1>
-        <p>今後、ドアの施錠忘れ防止のため、以下の写真を清掃報告アルバムにアップをお願いいたします<span class="emoji">❗</span></p>
+    </header>
+    <main>
+        <div class="container">
+            <section>
+                <p>今後、ドアの施錠忘れ防止のため、以下の写真を清掃報告アルバムにアップをお願いいたします<span class="emoji">❗</span></p>
+            </section>
 
-        <h2>目的</h2>
-        <p>施錠されていないことで他のゲストが誤って入室してしまうことを防ぐためです。</p>
-        <p>
-            誤って入室してしまった場合、再清掃が必要になってしまいます<span class="emoji">😱</span>
-        </p>
-        <p><strong class="important">必ず施錠確認をお願いいたします<span class="emoji">‼️</span></strong></p>
+            <section>
+                <h2>目的</h2>
+                <p>施錠されていないことで他のゲストが誤って入室してしまうことを防ぐためです。</p>
+                <p>誤って入室してしまった場合、再清掃が必要になってしまいます<span class="emoji">😱</span></p>
+                <p><strong class="important">必ず施錠確認をお願いいたします<span class="emoji">‼️</span></strong></p>
+            </section>
 
-        <h2>施錠確認の写真例</h2>
-        <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock1.jpg?raw=true" alt="施錠確認例1">
-        <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock2.jpg?raw=true" alt="施錠確認例2">
+            <section>
+                <h2>施錠確認の写真例</h2>
+                <div class="image-gallery">
+                    <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock1.jpg?raw=true" alt="施錠確認例1">
+                    <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock2.jpg?raw=true" alt="施錠確認例2">
+                </div>
+            </section>
 
-        <h2>鍵が閉まっていなかった画像</h2>
-        <p>
-            ↓鍵が閉まっていなかった画像になります<span class="emoji">😨</span>
-        </p>
-        <p>清掃件数を抱えている時は気持ちが焦って施錠忘れが起きてしまいますので、一息ついて最終確認を必ずお願いいたします<span class="emoji">‼️</span></p>
-        <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock3.jpg?raw=true" alt="鍵が閉まっていない例">
+            <section>
+                <h2>鍵が閉まっていなかった画像</h2>
+                <p>↓鍵が閉まっていなかった画像になります<span class="emoji">😨</span></p>
+                <p>清掃件数を抱えている時は気持ちが焦って施錠忘れが起きてしまいますので、一息ついて最終確認を必ずお願いいたします<span class="emoji">‼️</span></p>
+                <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock3.jpg?raw=true" alt="鍵が閉まっていない例">
+            </section>
 
-        <p>ご協力のほどよろしくお願いいたします<span class="emoji">🙏</span></p>
-    <div class="buttons">
-            <a href="index.html" class="button">ホームに戻る</a>
-            <a href="example.html" class="button">事例に戻る</a>
+            <section>
+                <p>ご協力のほどよろしくお願いいたします<span class="emoji">🙏</span></p>
+            </section>
+
+            <!-- ボタンセクション -->
+            <div class="buttons">
+                <a href="index.html" class="button"><i class="fas fa-home"></i> ホームに戻る</a>
+                <a href="example.html" class="button"><i class="fas fa-clipboard-list"></i> 事例に戻る</a>
+            </div>
         </div>
-    </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 くくるから</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // テーマ切り替え関数
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            // ユーザーのテーマ選好を保存
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // ページ読み込み時にテーマを設定
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        });
+    </script>
 </body>
 </html>
