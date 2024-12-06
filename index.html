@@ -18,32 +18,47 @@
             margin: 0;
             padding: 20px;
             text-align: center; /* テキストの中央揃え */
-            background-color: #f9f9f9; /* 背景色を追加 */
+            background-color: #f9f9f9; /* 背景色 */
+            color: #333;
         }
-        
+
+        /* ダークテーマ */
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        body.dark-theme a {
+            color: #80d8ff;
+            border-color: #80d8ff;
+        }
+        body.dark-theme a:hover {
+            background-color: #80d8ff;
+            color: #121212;
+        }
+
         /* ヘッダーのスタイル */
         header {
             width: 100%;
             margin-bottom: 20px;
         }
-        
+
         h1 {
             color: #1a73e8; /* よりソフトな青色 */
             font-size: 2em;
             margin: 0;
         }
-        
+
         /* ナビゲーションのスタイル */
         nav ul {
             list-style: none;
             padding: 0;
             margin: 20px 0;
         }
-        
+
         nav li {
             margin: 10px 0;
         }
-        
+
         nav a {
             color: #0073e6;
             text-decoration: none;
@@ -53,12 +68,12 @@
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
-        
+
         nav a:hover {
             background-color: #0073e6;
             color: #ffffff;
         }
-        
+
         /* 注目メッセージのスタイル */
         .highlight {
             color: #d32f2f; /* 視認性の高い赤色 */
@@ -67,7 +82,7 @@
             margin-top: 30px;
             animation: pulse 1.5s infinite;
         }
-        
+
         /* 拡大縮小アニメーション */
         @keyframes pulse {
             0%, 100% {
@@ -77,7 +92,7 @@
                 transform: scale(1.1);
             }
         }
-        
+
         /* フッターのスタイル */
         footer {
             width: 100%;
@@ -86,7 +101,7 @@
             font-size: 0.9em;
             color: #666666;
         }
-        
+
         /* レスポンシブデザインの強化 */
         @media (max-width: 600px) {
             nav a {
@@ -98,7 +113,7 @@
                 font-size: 1.5em;
             }
         }
-        
+
         /* アニメーションを減らすユーザー向け設定 */
         @media (prefers-reduced-motion: reduce) {
             .highlight {
@@ -108,6 +123,11 @@
     </style>
 </head>
 <body>
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #0073e6; color: #ffffff; border-radius: 5px; cursor: pointer;">
+        テーマ切り替え
+    </button>
+
     <header>
         <h1>くくるからのお知らせ</h1>
     </header>
@@ -132,5 +152,12 @@
     <footer>
         <p>&copy; 2024 くくるから</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
 </body>
 </html>
