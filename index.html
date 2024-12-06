@@ -7,33 +7,53 @@
     <meta name="description" content="くくるからのお知らせページ。最新情報や重要なお知らせをお届けします。">
     <meta name="keywords" content="くくる, お知らせ, 清掃, シフト">
     
+    <!-- Google Fontsの追加（オプション） -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <!-- 内部CSSの追加 -->
     <style>
-        /* 全体のスタイル */
+        /* CSS変数の定義 */
+        :root {
+            --color-background: #f9f9f9;
+            --color-text: #333333;
+            --color-primary: #1a73e8; /* ソフトな青色 */
+            --color-secondary: #d9534f; /* 赤色 */
+            --color-link-bg: #0073e6;
+            --color-link-hover: #005bb5;
+            --color-button-bg: #0073e6;
+            --color-button-hover: #005bb5;
+            --color-highlight: #ffeb3b;
+            --font-family: 'Roboto', sans-serif;
+            --transition-speed: 0.3s;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ダークテーマ用の変数 */
+        body.dark-theme {
+            --color-background: #121212;
+            --color-text: #ffffff;
+            --color-primary: #80d8ff;
+            --color-secondary: #ff5252;
+            --color-link-bg: #80d8ff;
+            --color-link-hover: #4fc3f7;
+            --color-button-bg: #555555;
+            --color-button-hover: #333333;
+            --color-highlight: #fbc02d;
+            --box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+        }
+
+        /* 基本スタイル */
         body {
+            font-family: var(--font-family);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            text-align: center; /* テキストの中央揃え */
-            background-color: #f9f9f9; /* 背景色 */
-            color: #333;
-        }
-
-        /* ダークテーマ */
-        body.dark-theme {
-            background-color: #121212;
-            color: #ffffff;
-        }
-        body.dark-theme a {
-            color: #80d8ff;
-            border-color: #80d8ff;
-        }
-        body.dark-theme a:hover {
-            background-color: #80d8ff;
-            color: #121212;
+            min-height: 100vh;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         /* ヘッダーのスタイル */
@@ -43,9 +63,12 @@
         }
 
         h1 {
-            color: #1a73e8; /* よりソフトな青色 */
-            font-size: 2em;
+            color: var(--color-primary);
+            font-size: 2.5rem;
             margin: 0;
+            padding: 10px 0;
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
         }
 
         /* ナビゲーションのスタイル */
@@ -53,30 +76,35 @@
             list-style: none;
             padding: 0;
             margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
 
         nav li {
-            margin: 10px 0;
+            margin: 0;
         }
 
         nav a {
-            color: #0073e6;
+            color: var(--color-link-bg);
             text-decoration: none;
             display: inline-block;
             padding: 10px 20px;
-            border: 1px solid #0073e6;
+            border: 2px solid var(--color-link-bg);
             border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            font-size: 1rem;
         }
 
         nav a:hover {
-            background-color: #0073e6;
+            background-color: var(--color-link-hover);
             color: #ffffff;
         }
 
         /* 注目メッセージのスタイル */
         .highlight {
-            color: #d32f2f; /* 視認性の高い赤色 */
+            color: var(--color-secondary);
             font-weight: bold;
             font-size: 1.8em;
             margin-top: 30px;
@@ -93,22 +121,64 @@
             }
         }
 
+        /* ダークテーマ時のリンクスタイル */
+        body.dark-theme a {
+            color: var(--color-link-bg);
+            border-color: var(--color-link-bg);
+        }
+
+        body.dark-theme a:hover {
+            background-color: var(--color-link-hover);
+            color: #121212;
+        }
+
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: var(--color-button-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-theme-toggle:hover {
+            background-color: var(--color-button-hover);
+            transform: rotate(20deg);
+        }
+
         /* フッターのスタイル */
         footer {
             width: 100%;
             text-align: center;
             margin-top: 40px;
-            font-size: 0.9em;
-            color: #666666;
+            font-size: 0.9rem;
+            color: var(--color-text);
         }
 
-        /* レスポンシブデザインの強化 */
+        /* レスポンシブデザイン */
         @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            .btn-theme-toggle {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+
             nav a {
                 padding: 8px 16px;
-                font-size: 0.9em;
+                font-size: 0.9rem;
             }
-            
+
             .highlight {
                 font-size: 1.5em;
             }
@@ -124,9 +194,7 @@
 </head>
 <body>
     <!-- テーマ切り替えボタン -->
-    <button onclick="toggleTheme()" style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #0073e6; color: #ffffff; border-radius: 5px; cursor: pointer;">
-        テーマ切り替え
-    </button>
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
 
     <header>
         <h1>くくるからのお知らせ</h1>
@@ -156,9 +224,24 @@
 
     <!-- JavaScript -->
     <script>
+        // テーマ切り替え関数
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
+            // ユーザーのテーマ選好を保存
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
         }
+
+        // ページ読み込み時にテーマを設定
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        });
     </script>
 </body>
 </html>
