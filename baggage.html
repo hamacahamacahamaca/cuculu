@@ -35,6 +35,31 @@
             color: #121212;
         }
 
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-theme-toggle:hover {
+            background-color: #005bb5;
+        }
+
+        body.dark-theme .btn-theme-toggle {
+            background-color: #555;
+            color: #fff;
+        }
+        body.dark-theme .btn-theme-toggle:hover {
+            background-color: #333;
+        }
+
         /* ヘッダーのスタイル */
         header {
             width: 100%;
@@ -113,9 +138,7 @@
 </head>
 <body>
     <!-- テーマ切り替えボタン -->
-    <button onclick="toggleTheme()" style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #0073e6; color: #ffffff; border-radius: 5px; cursor: pointer;">
-        テーマ切り替え
-    </button>
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">テーマ切り替え</button>
 
     <header>
         <h1>清掃中のゲスト様荷物先置きに関して</h1>
