@@ -29,6 +29,7 @@
             --color-card-shadow: rgba(0, 0, 0, 0.1);
             --font-family: 'Roboto', sans-serif;
             --transition-speed: 0.3s;
+            --max-width: 1200px;
         }
 
         /* ダークテーマ用の変数 */
@@ -57,6 +58,24 @@
             align-items: center;
             min-height: 100vh;
             transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        /* コンテナのスタイル */
+        .container {
+            background: var(--color-card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+            max-width: 800px;
+            width: 100%;
+            text-align: center; /* 全体を中央揃え */
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
         }
 
         /* ヘッダーのスタイル */
@@ -91,9 +110,10 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-theme-toggle:hover {
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
             background-color: var(--color-button-hover);
             transform: rotate(20deg);
+            outline: none;
         }
 
         /* メインコンテンツのスタイル */
@@ -105,26 +125,10 @@
             align-items: center;
         }
 
-        .container {
-            background: var(--color-card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px var(--color-card-shadow);
-            max-width: 800px;
-            width: 100%;
-            text-align: left;
-            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        body.dark-theme .container {
-            background: var(--color-card-bg);
-            box-shadow: 0 4px 8px var(--color-card-shadow);
-        }
-
         p {
             line-height: 1.8;
             margin: 10px 0;
+            text-align: center; /* 段落を中央揃え */
         }
 
         h2 {
@@ -133,6 +137,7 @@
             font-size: 1.8rem;
             border-bottom: 2px solid var(--color-primary);
             padding-bottom: 5px;
+            text-align: center; /* 見出しを中央揃え */
         }
 
         .highlight {
@@ -147,6 +152,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .form-link, .home-link {
@@ -164,8 +170,10 @@
             gap: 8px;
         }
 
-        .form-link:hover, .home-link:hover {
+        .form-link:hover, .form-link:focus,
+        .home-link:hover, .home-link:focus {
             background-color: var(--color-link-hover);
+            outline: none;
         }
 
         /* フッターのスタイル */
