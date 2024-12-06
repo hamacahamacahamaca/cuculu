@@ -19,72 +19,86 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            text-align: center; /* 全体のテキストを中央揃え */
+            text-align: center;
         }
-        
+
+        /* ダークテーマ */
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        body.dark-theme a {
+            color: #80d8ff;
+            border-color: #80d8ff;
+        }
+        body.dark-theme a:hover {
+            background-color: #80d8ff;
+            color: #121212;
+        }
+
         /* ヘッダーのスタイル */
         header {
             width: 100%;
             margin-bottom: 20px;
         }
-        
+
         h1 {
             color: #0073e6;
             font-size: 2.5em;
             margin: 0;
             text-align: center;
         }
-        
+
         /* メインコンテンツのスタイル */
         main {
             flex: 1;
         }
-        
+
         section {
             max-width: 800px;
             margin: 0 auto 40px;
-            text-align: center; /* セクション内のテキストを中央揃えに */
+            text-align: center;
         }
-        
+
         h2 {
             color: #0073e6;
         }
-        
+
         p {
             line-height: 1.6;
             margin: 10px 0;
         }
-        
+
         .highlight {
-            color: #d32f2f; /* 視認性の高い赤色 */
+            color: #d32f2f;
             font-weight: bold;
             font-size: 1.5em;
             margin-top: 20px;
         }
-        
+
         .buttons {
             margin-top: 30px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* リンクを中央揃えに */
+            align-items: center;
         }
-        
+
         .form-link, .home-link {
             display: inline-block;
             background-color: #0073e6;
             color: white;
             text-decoration: none;
             padding: 10px 20px;
-            margin: 10px 5px; /* リンク間のスペース */
+            margin: 10px 5px;
             border-radius: 5px;
             font-size: 1.2em;
             transition: background-color 0.3s;
         }
-        
+
         .form-link:hover, .home-link:hover {
             background-color: #005bb5;
         }
-        
+
         /* フッターのスタイル */
         footer {
             width: 100%;
@@ -115,6 +129,11 @@
     </style>
 </head>
 <body>
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #0073e6; color: #ffffff; border-radius: 5px; cursor: pointer;">
+        テーマ切り替え
+    </button>
+
     <header>
         <h1>シフト提出のお願い</h1>
     </header>
@@ -145,5 +164,12 @@
     <footer>
         <p>&copy; 2024 くくるから</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
 </body>
 </html>
