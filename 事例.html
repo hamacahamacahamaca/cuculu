@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清掃事例ページ</title>
+    <meta name="description" content="清掃事例のリンク集ページ。具体的な事例を確認できます。">
+    <meta name="keywords" content="清掃, 事例, 注意事項, 確認項目, リンク集">
+
+    <!-- 内部CSS -->
+    <style>
+        /* 基本スタイル */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* ダークテーマ */
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        body.dark-theme a {
+            color: #80d8ff;
+            border-color: #80d8ff;
+        }
+        body.dark-theme a:hover {
+            background-color: #80d8ff;
+            color: #121212;
+        }
+
+        /* ヘッダーのスタイル */
+        header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #0073e6;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* リンクセクションのスタイル */
+        .links-section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        h2 {
+            color: #0073e6;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+        }
+
+        a {
+            color: #0073e6;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: 1px solid #0073e6;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0073e6;
+            color: #ffffff;
+        }
+
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-theme-toggle:hover {
+            background-color: #005bb5;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">テーマ切り替え</button>
+
+    <header>
+        <h1>清掃事例ページ</h1>
+    </header>
+
+    <main class="links-section">
+        <h2>事例リンク一覧</h2>
+        <ul>
+            <li><a href="example1.html" title="事例1の詳細を見る">事例1: ゴミの分別ミス</a></li>
+            <li><a href="example2.html" title="事例2の詳細を見る">事例2: 清掃漏れ（リモコンの配置ミス）</a></li>
+            <li><a href="example3.html" title="事例3の詳細を見る">事例3: 備品の破損と対応</a></li>
+            <li><a href="example4.html" title="事例4の詳細を見る">事例4: ゲスト荷物の取り扱い</a></li>
+            <li><a href="example5.html" title="事例5の詳細を見る">事例5: 水回りの清掃不足</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 くくるから</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
+</body>
+</html>
