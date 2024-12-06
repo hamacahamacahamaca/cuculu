@@ -21,49 +21,60 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        
+
+        /* ダークテーマ */
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        body.dark-theme a {
+            color: #80d8ff;
+        }
+        body.dark-theme a:hover {
+            background-color: #80d8ff;
+            color: #121212;
+        }
+
         /* ヘッダーのスタイル */
         header {
             width: 100%;
             margin-bottom: 20px;
         }
-        
+
         h1 {
             color: #0073e6;
             font-size: 2em;
             margin: 0;
         }
-        
+
         /* メインコンテンツのスタイル */
         main {
             flex: 1;
         }
-        
+
         section {
             max-width: 800px;
             margin: 0 auto;
-            text-align: left; /* セクション内のテキストを左揃えに */
+            text-align: left;
         }
-        
+
         p {
             line-height: 1.8;
             margin: 10px 0;
         }
-        
+
         .highlight {
-            color: #d32f2f; /* 視認性の高い赤色 */
+            color: #d32f2f;
             font-weight: bold;
             font-size: 1.2em;
             margin: 20px 0;
         }
-        
-        /* オーダーリストのスタイル */
+
         ol {
             text-align: left;
             padding-left: 20px;
         }
-        
-        /* ホームに戻るボタンのスタイル */
+
         .home-link {
             display: inline-block;
             background-color: #0073e6;
@@ -75,12 +86,11 @@
             font-size: 1.2em;
             transition: background-color 0.3s;
         }
-        
+
         .home-link:hover {
             background-color: #005bb5;
         }
-        
-        /* フッターのスタイル */
+
         footer {
             width: 100%;
             text-align: center;
@@ -89,7 +99,6 @@
             color: #666666;
         }
 
-        /* レスポンシブデザインの強化 */
         @media (max-width: 600px) {
             .home-link {
                 padding: 8px 16px;
@@ -100,16 +109,14 @@
                 font-size: 1em;
             }
         }
-
-        /* アニメーションを減らすユーザー向け設定 */
-        @media (prefers-reduced-motion: reduce) {
-            .highlight {
-                animation: none;
-            }
-        }
     </style>
 </head>
 <body>
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #0073e6; color: #ffffff; border-radius: 5px; cursor: pointer;">
+        テーマ切り替え
+    </button>
+
     <header>
         <h1>清掃中のゲスト様荷物先置きに関して</h1>
     </header>
@@ -135,5 +142,12 @@
     <footer>
         <p>&copy; 2024 くくるから</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
 </body>
 </html>
