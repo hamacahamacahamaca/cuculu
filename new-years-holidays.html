@@ -19,68 +19,73 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            text-align: center; /* 全体のテキストを中央揃え */
+            text-align: center;
         }
-        
+
+        /* ダークテーマ */
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        body.dark-theme a {
+            color: #80d8ff;
+            border-color: #80d8ff;
+        }
+        body.dark-theme a:hover {
+            background-color: #80d8ff;
+            color: #121212;
+        }
+
         /* ヘッダーのスタイル */
         header {
             width: 100%;
             margin-bottom: 20px;
         }
-        
+
         h1 {
             color: #0073e6;
             font-size: 2.5em;
             margin: 0;
-            text-align: center;
         }
-        
+
         /* メインコンテンツのスタイル */
         main {
             flex: 1;
         }
-        
+
         section {
             max-width: 800px;
             margin: 0 auto 40px;
-            text-align: left; /* セクション内のテキストを左揃えに */
+            text-align: left;
         }
-        
+
         h2, h3 {
             color: #0073e6;
         }
-        
+
         p {
             line-height: 1.8;
             margin: 10px 0;
         }
-        
+
         .conditions {
             list-style-type: disc;
             padding-left: 20px;
-            margin: 10px 0;
         }
-        
-        .note {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #555;
-        }
-        
+
         .highlight {
             background-color: #fff8dc;
             border: 1px solid #ffd700;
             padding: 10px;
             display: inline-block;
-            margin-top: 10px;
             font-weight: bold;
         }
-        
+
         .important {
-            color: #d32f2f; /* 視認性の高い赤色 */
+            color: #d32f2f;
             font-weight: bold;
         }
-        
+
         table {
             width: 100%;
             max-width: 800px;
@@ -88,35 +93,33 @@
             border-collapse: collapse;
             background-color: #fff;
         }
-        
+
         table caption {
-            caption-side: top;
             text-align: left;
             font-weight: bold;
             margin-bottom: 10px;
         }
-        
+
         th, td {
             padding: 10px;
             border: 1px solid #ccc;
             text-align: center;
         }
-        
+
         th {
             background-color: #0073e6;
             color: white;
         }
-        
+
         tbody tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        
-        /* ホームに戻るボタンのスタイル */
+
         .home-button {
             text-align: center;
             margin-top: 30px;
         }
-        
+
         .home-link {
             display: inline-block;
             background-color: #0073e6;
@@ -124,15 +127,13 @@
             text-decoration: none;
             padding: 10px 20px;
             border-radius: 5px;
-            font-size: 1.2em;
             transition: background-color 0.3s;
         }
-        
+
         .home-link:hover {
             background-color: #005bb5;
         }
-        
-        /* フッターのスタイル */
+
         footer {
             width: 100%;
             text-align: center;
@@ -141,14 +142,9 @@
             color: #666666;
         }
 
-        /* レスポンシブデザインの強化 */
         @media (max-width: 600px) {
             .home-link {
                 padding: 8px 16px;
-                font-size: 1em;
-            }
-            
-            .highlight {
                 font-size: 1em;
             }
             
@@ -156,16 +152,14 @@
                 font-size: 0.9em;
             }
         }
-
-        /* アニメーションを減らすユーザー向け設定 */
-        @media (prefers-reduced-motion: reduce) {
-            .highlight {
-                animation: none;
-            }
-        }
     </style>
 </head>
 <body>
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #0073e6; color: #ffffff; border-radius: 5px; cursor: pointer;">
+        テーマ切り替え
+    </button>
+
     <header>
         <h1>年末年始のお知らせ</h1>
     </header>
@@ -185,7 +179,6 @@
                 <li>協力性（柔軟なシフト対応、備品管理への協力）</li>
                 <li>コミュニケーション（報告や連絡の丁寧さ、礼節）</li>
             </ul>
-            <p class="note">※条件を満たさない場合、特別手当が支給されない可能性があります。</p>
         </section>
 
         <section>
@@ -197,7 +190,7 @@
 
         <section>
             <h3>🎁 お年玉手当のご案内 🎁</h3>
-            <p>特に頑張ってくれた上位5名の方に、お年玉手当をプレゼントします！感謝の気持ちを込めてお届けします。</p>
+            <p>特に頑張ってくれた上位5名の方に、お年玉手当をプレゼントします！</p>
         </section>
 
         <section>
@@ -213,7 +206,7 @@
                 <tbody>
                     <tr>
                         <td>12月21日～23日</td>
-                        <td>3割増し（新追加）</td>
+                        <td>3割増し</td>
                     </tr>
                     <tr>
                         <td>12月24日～30日</td>
@@ -225,7 +218,7 @@
                     </tr>
                     <tr>
                         <td>1月1日</td>
-                        <td>10割増し（2倍）</td>
+                        <td>10割増し</td>
                     </tr>
                     <tr>
                         <td>1月2日～3日</td>
@@ -233,18 +226,12 @@
                     </tr>
                     <tr>
                         <td>1月4日～5日</td>
-                        <td>3割増し（新追加）</td>
+                        <td>3割増し</td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
-        <section>
-            <p>年末年始は大切な時間だと思いますが、皆さんのご協力が本当に力になります。一緒に最高のサービスを提供し、素晴らしい新年を迎えましょう！</p>
-            <p>これからもどうぞよろしくお願いします😊</p>
-        </section>
-
-        <!-- ホームに戻るボタン -->
         <div class="home-button">
             <a href="index.html" class="home-link" title="ホームページに戻る">ホームに戻る</a>
         </div>
@@ -252,5 +239,12 @@
     <footer>
         <p>&copy; 2024 くくるから</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
 </body>
 </html>
