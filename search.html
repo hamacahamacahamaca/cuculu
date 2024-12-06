@@ -91,9 +91,10 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-theme-toggle:hover {
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
             background-color: var(--color-button-hover);
             transform: rotate(20deg);
+            outline: none;
         }
 
         /* メインコンテンツのスタイル */
@@ -112,7 +113,7 @@
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
-            text-align: left;
+            text-align: center;
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
         }
@@ -135,13 +136,15 @@
             align-items: center;
             gap: 8px;
             transition: background-color var(--transition-speed), color var(--transition-speed);
+            margin: 10px 0;
         }
 
-        a:hover {
+        a:hover, a:focus {
             background-color: var(--color-link-hover);
             color: #ffffff;
             border-radius: 5px;
             padding: 5px 10px;
+            outline: none;
         }
 
         .home-link {
@@ -153,13 +156,15 @@
             transition: background-color var(--transition-speed);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             font-size: 1.1rem;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
+            margin-top: 20px;
         }
 
-        .home-link:hover {
+        .home-link:hover, .home-link:focus {
             background-color: var(--color-link-hover);
+            outline: none;
         }
 
         /* フッターのスタイル */
@@ -239,11 +244,11 @@
 
             <!-- リンク一覧 -->
             <section>
-                <a href="https://tayori.com/q/cuculu-cleaning" target="_blank" title="現場検索ツールはこちら">
+                <a href="https://tayori.com/q/cuculu-cleaning" target="_blank" rel="noopener noreferrer" title="現場検索ツールはこちら">
                     <i class="fas fa-search"></i> 現場検索ツールはこちら
                 </a>
                 <br>
-                <a href="http://tayori.com" target="_blank" title="Tayoriトップページ">
+                <a href="http://tayori.com" target="_blank" rel="noopener noreferrer" title="Tayoriトップページ">
                     <i class="fas fa-home"></i> Tayoriトップページ
                 </a>
             </section>
