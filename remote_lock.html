@@ -115,6 +115,7 @@
             width: 100%;
             text-align: left;
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+            animation: fadeIn 1.5s ease-in;
         }
 
         body.dark-theme .container {
@@ -156,6 +157,7 @@
             padding: 10px;
             display: inline-block;
             font-weight: bold;
+            animation: pulse 1.5s infinite;
         }
 
         .important {
@@ -193,6 +195,9 @@
             font-size: 1.1rem;
             transition: background-color var(--transition-speed);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .button:hover {
@@ -241,12 +246,36 @@
             .highlight {
                 font-size: 1em;
             }
+
+            .button i {
+                display: none; /* モバイルではアイコンを非表示にする場合 */
+            }
         }
 
         /* アニメーションを減らすユーザー向け設定 */
         @media (prefers-reduced-motion: reduce) {
             .highlight {
                 animation: none;
+            }
+
+            .container {
+                animation: none;
+            }
+        }
+
+        /* フェードインアニメーションの定義 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 拡大縮小アニメーション */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
             }
         }
     </style>
@@ -294,8 +323,8 @@
 
             <!-- ボタンセクション -->
             <div class="buttons">
-                <a href="index.html" class="button"><i class="fas fa-home"></i> ホームに戻る</a>
-                <a href="example.html" class="button"><i class="fas fa-clipboard-list"></i> 事例に戻る</a>
+                <a href="index.html" class="button" title="ホームページに戻る"><i class="fas fa-home"></i> ホームに戻る</a>
+                <a href="example.html" class="button" title="事例に戻る"><i class="fas fa-clipboard-list"></i> 事例に戻る</a>
             </div>
         </div>
     </main>
