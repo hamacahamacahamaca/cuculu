@@ -3,92 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ハウスマニュアルと清掃マニュアル</title>
+    <title>マニュアル設置のご案内</title>
+    <meta name="description" content="マニュアル設置に関するお知らせ。クルーの皆様への重要な情報を提供します。">
+    <meta name="keywords" content="マニュアル設置, クルー, お知らせ, 清掃, ハウスマニュアル">
+    
+    <!-- Google Fontsの追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesomeの追加（アイコン使用のため） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- 内部CSSの追加 -->
     <style>
+        /* CSS変数の定義 */
         :root {
             --color-background: #f3f4f6;
             --color-text: #333333;
-            --color-primary: #3498db;
-            --color-secondary: #9b59b6;
-            --color-card: #ffffff;
-            --color-highlight-bg: #fef5e7;
-            --color-highlight-border: #f5b041;
-            --color-button: #0073e6;
+            --color-primary: #0073e6; /* 青色 */
+            --color-secondary: #d32f2f; /* 赤色 */
+            --color-highlight: #ffeb3b; /* 黄色 */
+            --color-button-bg: #0073e6;
             --color-button-hover: #005bb5;
-            --color-link: #3498db;
-            --color-link-hover: #2c3e50;
-            --color-footer: #aaa;
+            --color-link-bg: #0073e6;
+            --color-link-hover: #005bb5;
+            --color-card-bg: #ffffff;
+            --color-card-shadow: rgba(0, 0, 0, 0.1);
+            --font-family: 'Roboto', sans-serif;
             --transition-speed: 0.3s;
+            --max-width: 1200px;
         }
 
+        /* ダークテーマ用の変数 */
+        body.dark-theme {
+            --color-background: #121212;
+            --color-text: #ffffff;
+            --color-primary: #80d8ff;
+            --color-secondary: #ff5252;
+            --color-highlight: #fbc02d;
+            --color-button-bg: #555555;
+            --color-button-hover: #333333;
+            --color-link-bg: #80d8ff;
+            --color-link-hover: #4fc3f7;
+            --color-card-bg: #1e1e1e;
+            --color-card-shadow: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 基本スタイル */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: var(--font-family);
             background-color: var(--color-background);
             color: var(--color-text);
             margin: 0;
-            padding: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
+            align-items: center;
             min-height: 100vh;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
-        body.dark-theme {
-            --color-background: #121212;
-            --color-text: #ffffff;
-            --color-card: #1e1e1e;
-            --color-primary: #9b59b6;
-            --color-secondary: #3498db;
-            --color-button: #555;
-            --color-button-hover: #333;
+        /* コンテナのスタイル */
+        .container {
+            background: var(--color-card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+            max-width: 900px;
+            width: 100%;
+            text-align: left;
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+            animation: fadeIn 1.5s ease-in;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background: var(--color-card);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background-color var(--transition-speed);
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+        }
+
+        /* ヘッダーのスタイル */
+        header {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         h1 {
-            font-size: 2.5rem;
             color: #fff;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            font-size: 2.5em;
+            margin: 0;
             padding: 15px;
             border-radius: 8px;
+            background: linear-gradient(90deg, var(--color-primary), #9b59b6);
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background var(--transition-speed);
+            display: inline-block;
+            /* width: 100%; */ /* ここをコメントアウトまたは削除 */
+            box-sizing: border-box;
         }
 
-        body.dark-theme h1 {
-            background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: var(--color-button-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
         }
 
-        h2 {
-            font-size: 1.5rem;
-            color: var(--color-primary);
-            margin-bottom: 10px;
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
+            background-color: var(--color-button-hover);
+            transform: rotate(20deg);
+            outline: none;
+        }
+
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            text-align: left; /* 読みやすさのため左揃え */
+            margin-bottom: 30px;
         }
 
         p, li {
             line-height: 1.8;
             font-size: 1rem;
-        }
-
-        ul {
-            padding-left: 20px;
+            text-align: left; /* 段落とリストを左揃え */
         }
 
         .highlight {
-            background: var(--color-highlight-bg);
-            border-left: 5px solid var(--color-highlight-border);
+            background: var(--color-highlight);
+            border-left: 5px solid #f5b041;
             padding: 10px 15px;
             border-radius: 5px;
             margin: 10px 0;
+            display: inline-block;
+            text-align: center;
         }
 
         .section {
@@ -96,12 +159,11 @@
         }
 
         .card {
-            background: var(--color-card);
+            background: #f8f9fa;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            transition: background-color var(--transition-speed);
         }
 
         .image-container {
@@ -114,125 +176,183 @@
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: block; /* 画像をブロック要素に */
+            margin: 0 auto; /* 自動マージンで中央揃え */
+        }
+
+        /* ボタンセクションのスタイル */
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .home-link {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 10px 20px;
-            background: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--color-link-bg);
             color: #fff;
             text-decoration: none;
+            padding: 12px 25px;
+            margin: 10px 5px;
             border-radius: 5px;
-            font-size: 1rem;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background var(--transition-speed);
+            font-size: 1.2em;
+            transition: background-color var(--transition-speed);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            gap: 8px;
         }
 
-        .home-link:hover {
-            background: var(--color-link-hover);
+        .home-link:hover, .home-link:focus {
+            background-color: var(--color-link-hover);
+            outline: none;
         }
 
-        .btn-theme-toggle {
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: var(--color-button);
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-            display: block;
-        }
-
-        .btn-theme-toggle:hover {
-            background-color: var(--color-button-hover);
-        }
-
+        /* フッターのスタイル */
         footer {
+            width: 100%;
             text-align: center;
+            margin-top: 40px;
             font-size: 0.9rem;
-            color: var(--color-footer);
-            margin-top: 20px;
+            color: var(--color-text);
         }
 
+        /* レスポンシブデザイン */
         @media (max-width: 600px) {
             h1 {
                 font-size: 2rem;
+                border-radius: 5px;
+                padding: 10px;
             }
-            .home-link {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-            }
+
             .btn-theme-toggle {
-                padding: 8px 16px;
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                border-bottom: 1px solid var(--color-primary);
+            }
+
+            p, li {
                 font-size: 0.9rem;
             }
+
+            .highlight {
+                font-size: 1em;
+            }
+
+            .home-link {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .home-link i {
+                display: none; /* モバイルではアイコンを非表示にする場合 */
+            }
+        }
+
+        /* アニメーションを減らすユーザー向け設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .container {
+                animation: none;
+            }
+        }
+
+        /* フェードインアニメーションの定義 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <!-- テーマ切り替えボタン -->
-    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">テーマ切り替え</button>
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">
+        🌓
+    </button>
 
-    <div class="container">
+    <header>
         <h1>マニュアル設置のご案内</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="section">
+                <p>皆様お疲れ様です☺️</p>
+                <p>既に実施させていただいております物件もございますが、ゲスト用ハウスマニュアル（はまか自社管理物件）＆クルーさん用清掃マニュアル（全物件）へ設置することになりました❗</p>
+            </div>
 
-        <div class="section">
-            <p>皆様お疲れ様です☺️</p>
-            <p>既に実施させていただいております物件もございますが、ゲスト用ハウスマニュアル（はまか自社管理物件）＆クルーさん用清掃マニュアル（全物件）へ設置することになりました❗</p>
-        </div>
+            <div class="section card">
+                <h2>＜目的＞</h2>
+                <ul>
+                    <li><strong>ゲスト用ハウスマニュアル：</strong>ゲストが家の使い方で分からないことがあった場合に確認できるため</li>
+                    <li><strong>クルーさん用清掃マニュアル：</strong>作業手順が不明な場合と携帯をひらく手間を省きたい時にご活用お願いいたします。</li>
+                </ul>
+                <div class="highlight">
+                    ※LINEノートにも記載があるものと同じ内容です。
+                </div>
+            </div>
 
-        <div class="section card">
-            <h2>＜目的＞</h2>
-            <ul>
-                <li><strong>ゲスト用ハウスマニュアル：</strong>ゲストが家の使い方で分からないことがあった場合に確認できるため</li>
-                <li><strong>クルーさん用清掃マニュアル：</strong>作業手順が不明な場合と携帯をひらく手間を省きたい時にご活用お願いいたします。</li>
-            </ul>
-            <div class="highlight">
-                ※LINEノートにも記載があるものと同じ内容です。
+            <div class="section card">
+                <h2>＜設置場所＞</h2>
+                <ul>
+                    <li><strong>ゲスト用ハウスマニュアル：</strong>リモコン横、ない物件はテーブル上に置き、写真を撮ってアルバムへ載せるようご協力お願いいたします。</li>
+                    <li><strong>クルーさん用清掃マニュアル：</strong>鍵付きの備品庫やリネン庫などに設置してあります。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <p>ぷふか案件から順番に設置進めてまいります✊<br>ご協力のほどよろしくお願いいたします🙏</p>
+            </div>
+
+            <div class="image-container">
+                <h2>ゲスト用ハウスマニュアル</h2>
+                <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/guest.jpg?raw=true" alt="ゲスト用ハウスマニュアル">
+            </div>
+
+            <div class="image-container">
+                <h2>クルーさん用清掃マニュアル</h2>
+                <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/crew.jpg?raw=true" alt="クルーさん用清掃マニュアル">
+            </div>
+
+            <!-- ボタンセクション -->
+            <div class="buttons">
+                <a href="index.html" class="home-link" title="ホームページに戻る">
+                    <i class="fas fa-home"></i> ホームに戻る
+                </a>
             </div>
         </div>
-
-        <div class="section card">
-            <h2>＜設置場所＞</h2>
-            <ul>
-                <li><strong>ゲスト用ハウスマニュアル：</strong>リモコン横、ない物件はテーブル上に置き、写真を撮ってアルバムへ載せるようご協力お願いいたします。</li>
-                <li><strong>クルーさん用清掃マニュアル：</strong>鍵付きの備品庫やリネン庫などに設置してあります。</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <p>ぷふか案件から順番に設置進めてまいります✊<br>ご協力のほどよろしくお願いいたします🙏</p>
-        </div>
-
-        <div class="image-container">
-            <h2>ゲスト用ハウスマニュアル</h2>
-            <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/guest.jpg?raw=true" alt="ゲスト用ハウスマニュアル">
-        </div>
-
-        <div class="image-container">
-            <h2>クルーさん用清掃マニュアル</h2>
-            <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/crew.jpg?raw=true" alt="クルーさん用清掃マニュアル">
-        </div>
-
-        <!-- ホームに戻るボタン -->
-        <div class="section" style="text-align: center;">
-            <a href="index.html" class="home-link">ホームに戻る</a>
-        </div>
-    </div>
-
+    </main>
     <footer>
-        <p>&copy; 2024 くくるから</p>
+        &copy; 2024 はまか運営チーム
     </footer>
 
     <!-- JavaScript -->
     <script>
+        // テーマ切り替え関数
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
+            // ユーザーのテーマ選好を保存
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
         }
+
+        // ページ読み込み時にテーマを設定
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        });
     </script>
 </body>
 </html>
