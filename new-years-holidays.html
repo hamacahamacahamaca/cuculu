@@ -27,6 +27,7 @@
             --color-card-shadow: rgba(0, 0, 0, 0.1);
             --font-family: 'Roboto', sans-serif;
             --transition-speed: 0.3s;
+            --max-width: 1200px;
         }
 
         /* ダークテーマ用の変数 */
@@ -58,10 +59,29 @@
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
+        /* コンテナのスタイル */
+        .container {
+            background: var(--color-card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+            max-width: 800px;
+            width: 100%;
+            text-align: center; /* 全体を中央揃え */
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+        }
+
         /* ヘッダーのスタイル */
         header {
             width: 100%;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         h1 {
@@ -89,9 +109,10 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-theme-toggle:hover {
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
             background-color: var(--color-button-hover);
             transform: rotate(20deg);
+            outline: none;
         }
 
         /* メインコンテンツのスタイル */
@@ -103,25 +124,10 @@
             align-items: center;
         }
 
-        .container {
-            background: var(--color-card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px var(--color-card-shadow);
-            max-width: 800px;
-            width: 100%;
-            text-align: left;
-            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        body.dark-theme .container {
-            background: var(--color-card-bg);
-            box-shadow: 0 4px 8px var(--color-card-shadow);
-        }
-
         p {
             line-height: 1.8;
             margin: 10px 0;
+            text-align: center; /* 段落を中央揃え */
         }
 
         h2, h3 {
@@ -130,6 +136,7 @@
             font-size: 1.8rem;
             border-bottom: 2px solid var(--color-primary);
             padding-bottom: 5px;
+            text-align: center; /* 見出しを中央揃え */
         }
 
         h3 {
@@ -141,10 +148,13 @@
             list-style-type: disc;
             padding-left: 20px;
             margin: 10px 0;
+            text-align: left; /* リストは左揃え */
+            display: inline-block; /* 中央に配置 */
         }
 
         li {
             margin: 10px 0;
+            text-align: left; /* リスト項目も左揃え */
         }
 
         .highlight {
@@ -153,6 +163,7 @@
             padding: 10px;
             display: inline-block;
             font-weight: bold;
+            text-align: center; /* ハイライト部分を中央揃え */
         }
 
         .important {
@@ -171,6 +182,7 @@
             border-collapse: collapse;
             background-color: var(--color-card-bg);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* テーブル全体を中央揃え */
         }
 
         th, td {
@@ -204,10 +216,14 @@
             transition: background-color var(--transition-speed);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .home-link:hover {
+        .home-link:hover, .home-link:focus {
             background-color: var(--color-link-hover);
+            outline: none;
         }
 
         /* フッターのスタイル */
@@ -252,19 +268,31 @@
             .highlight {
                 font-size: 1em;
             }
+
+            ul {
+                padding-left: 15px;
+            }
         }
 
         /* アニメーションを減らすユーザー向け設定 */
         @media (prefers-reduced-motion: reduce) {
-            .highlight {
+            .container {
                 animation: none;
             }
+        }
+
+        /* フェードインアニメーションの定義 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <!-- テーマ切り替えボタン -->
-    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">
+        🌓
+    </button>
 
     <header>
         <h1>年末年始のお知らせ</h1>
