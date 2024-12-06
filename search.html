@@ -15,43 +15,121 @@
             text-align: center;
         }
 
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        body.dark-theme a {
+            color: #80d8ff;
+        }
+
         h1 {
             color: #0073e6;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         a {
             color: #0073e6;
             text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin: 10px 0;
         }
 
         a:hover {
             text-decoration: underline;
         }
+
+        .home-link {
+            color: #ffffff;
+            background-color: #0073e6;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .home-link:hover {
+            background-color: #005bb5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn-theme-toggle {
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-theme-toggle:hover {
+            background-color: #005bb5;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            a {
+                font-size: 1rem;
+            }
+
+            .btn-theme-toggle {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>クルーの皆様へ</h1>
-    <p>いつもご協力ありがとうございます。</p>
-    <p>
-        今回、現場でのお困りごと、質問事項などを検索できるツールを作成しました。
-        是非、今後活用していただければと思います。
-    </p>
-    <p>
-        各物件ラインのノートのURLを追記してありますのでご確認お願い致します。
-    </p>
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" class="btn-theme-toggle">テーマ切り替え</button>
 
-    <!-- リンク一覧 -->
-    <div>
-        <a href="https://tayori.com/q/cuculu-cleaning" target="_blank">現場検索ツールはこちら</a>
-        <br>
-        <a href="http://tayori.com" target="_blank">Tayoriトップページ</a>
+    <div class="container">
+        <h1>クルーの皆様へ</h1>
+        <p>いつもご協力ありがとうございます。</p>
+        <p>
+            今回、現場でのお困りごと、質問事項などを検索できるツールを作成しました。
+            是非、今後活用していただければと思います。
+        </p>
+        <p>
+            各物件ラインのノートのURLを追記してありますのでご確認お願い致します。
+        </p>
+
+        <!-- リンク一覧 -->
+        <div>
+            <a href="https://tayori.com/q/cuculu-cleaning" target="_blank">現場検索ツールはこちら</a>
+            <br>
+            <a href="http://tayori.com" target="_blank">Tayoriトップページ</a>
+        </div>
+
+        <!-- ホームに戻る -->
+        <p>
+            <a href="index.html" class="home-link">ホームに戻る</a>
+        </p>
     </div>
 
-    <!-- ホームに戻る -->
-    <p>
-        <a href="http://localhost:63342/unicodedata.pyd/%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8/%E3%81%8F%E3%81%8F%E3%82%8B%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B.html?_ijt=7qe1fd8pv4khnnh5qrcemn4r5t&_ij_reload=RELOAD_ON_SAVE" class="home-link">
-            ホームに戻る
-        </a>
-    </p>
+    <!-- JavaScript -->
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
 </body>
 </html>
