@@ -4,60 +4,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>喫煙に関する注意事項</title>
+    <meta name="description" content="喫煙に関する注意事項。クルーの皆様への重要な情報を提供します。">
+    <meta name="keywords" content="清掃, 喫煙, 注意事項, クルー, 安全">
+
+    <!-- 内部CSSの追加 -->
     <style>
+        /* CSS変数の定義 */
+        :root {
+            --color-background: #f9f9f9;
+            --color-text: #333333;
+            --color-primary: #d9534f;
+            --color-secondary: #ff5252;
+            --color-highlight-bg: #ffeb3b;
+            --color-button-bg: #d9534f;
+            --color-button-hover: #c9302c;
+            --color-link-bg: #d9534f;
+            --color-link-hover: #c9302c;
+            --color-card-bg: #ffffff;
+            --color-card-shadow: rgba(0, 0, 0, 0.1);
+            --font-family: 'Arial', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        /* ダークテーマ用の変数 */
+        body.dark-theme {
+            --color-background: #121212;
+            --color-text: #ffffff;
+            --color-primary: #ff5252;
+            --color-secondary: #ff4081;
+            --color-highlight-bg: #fbc02d;
+            --color-button-bg: #555555;
+            --color-button-hover: #333333;
+            --color-link-bg: #ff5252;
+            --color-link-hover: #e040fb;
+            --color-card-bg: #1e1e1e;
+            --color-card-shadow: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 基本スタイル */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f9f9f9;
-            color: #333;
-            margin: 20px;
-        }
-        .container {
-            background: #fff;
+            font-family: var(--font-family);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
+
+        /* ヘッダーのスタイル */
+        header {
+            margin-bottom: 30px;
+        }
+
         h1 {
-            color: #d9534f;
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin: 0;
+            padding: 10px 0;
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
         }
-        h2 {
-            color: #333;
-            border-bottom: 2px solid #d9534f;
-            padding-bottom: 5px;
+
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: var(--color-button-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
+
+        .btn-theme-toggle:hover {
+            background-color: var(--color-button-hover);
+            transform: rotate(20deg);
+        }
+
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: var(--color-card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+        }
+
+        p {
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+
         .important {
-            color: #d9534f;
+            background-color: var(--color-highlight-bg);
+            color: #000;
             font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
         }
+
         .emoji {
             font-size: 1.2em;
         }
-        ul {
-            margin-left: 20px;
+
+        /* ボタンセクションのスタイル */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .button {
+            background-color: var(--color-link-bg);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color var(--transition-speed);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: var(--color-link-hover);
+        }
+
+        /* フッターのスタイル */
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--color-text);
+            text-align: center;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            .btn-theme-toggle {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            .important {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
+
+    <header>
         <h1>喫煙に関する注意事項</h1>
-        <p>お疲れ様です。</p>
-        <p>
-            ゲスト様より施設共用部にてタバコを吸っているスタッフがいるので注意して欲しいとのメッセージをいただきました<span class="emoji">😱</span>
-        </p>
-        <p>タバコが苦手なゲスト様やご近所様の印象、火事の危険性がございますので、屋内外問わず施設周辺での喫煙は禁止となります<span class="emoji">🥺</span></p>
+    </header>
 
-        <h2>お願い</h2>
-        <ul>
-            <li>区の喫煙指定スペースでの喫煙をお願いいたします。</li>
-            <li>喫煙時には周囲の環境や安全に配慮をお願いします。</li>
-        </ul>
+    <main>
+        <div class="container">
+            <p>お疲れ様です。</p>
+            <p>
+                ゲスト様より施設共用部にてタバコを吸っているスタッフがいるので注意して欲しいとのメッセージをいただきました<span class="emoji">😱</span>
+            </p>
+            <p>タバコが苦手なゲスト様やご近所様の印象、火事の危険性がございますので、屋内外問わず施設周辺での喫煙は禁止となります<span class="emoji">🥺</span></p>
 
-        <p>ゲスト様や近隣住民の皆様が快適に過ごせるよう、何卒ご協力をお願いいたします<span class="emoji">🙏</span></p>
-    <div class="buttons">
-            <a href="index.html" class="button">ホームに戻る</a>
-            <a href="example.html" class="button">事例に戻る</a>
+            <h2>お願い</h2>
+            <ul>
+                <li>区の喫煙指定スペースでの喫煙をお願いいたします。</li>
+                <li>喫煙時には周囲の環境や安全に配慮をお願いします。</li>
+            </ul>
+
+            <p class="important">※あくまでもお荷物のみで、清掃中の入室は不可です。</p>
+
+            <p>ゲスト様や近隣住民の皆様が快適に過ごせるよう、何卒ご協力をお願いいたします<span class="emoji">🙏</span></p>
+
+            <!-- ボタンセクション -->
+            <div class="buttons">
+                <a href="index.html" class="button">ホームに戻る</a>
+                <a href="example.html" class="button">事例に戻る</a>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 くくるから</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // テーマ切り替え関数
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            // ユーザーのテーマ選好を保存
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // ページ読み込み時にテーマを設定
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        });
+    </script>
 </body>
 </html>
