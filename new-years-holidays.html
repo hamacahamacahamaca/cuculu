@@ -48,6 +48,31 @@
             margin: 0;
         }
 
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-theme-toggle:hover {
+            background-color: #005bb5;
+        }
+
+        body.dark-theme .btn-theme-toggle {
+            background-color: #555;
+            color: #fff;
+        }
+        body.dark-theme .btn-theme-toggle:hover {
+            background-color: #333;
+        }
+
         /* メインコンテンツのスタイル */
         main {
             flex: 1;
@@ -68,21 +93,11 @@
             margin: 10px 0;
         }
 
-        .conditions {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
         .highlight {
             background-color: #fff8dc;
             border: 1px solid #ffd700;
             padding: 10px;
             display: inline-block;
-            font-weight: bold;
-        }
-
-        .important {
-            color: #d32f2f;
             font-weight: bold;
         }
 
@@ -92,12 +107,6 @@
             margin: 20px auto;
             border-collapse: collapse;
             background-color: #fff;
-        }
-
-        table caption {
-            text-align: left;
-            font-weight: bold;
-            margin-bottom: 10px;
         }
 
         th, td {
@@ -156,9 +165,7 @@
 </head>
 <body>
     <!-- テーマ切り替えボタン -->
-    <button onclick="toggleTheme()" style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #0073e6; color: #ffffff; border-radius: 5px; cursor: pointer;">
-        テーマ切り替え
-    </button>
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">テーマ切り替え</button>
 
     <header>
         <h1>年末年始のお知らせ</h1>
@@ -172,64 +179,10 @@
         <section>
             <h2>✨ 特別手当のお知らせ ✨</h2>
             <p>今年の年末年始の特別手当についてお知らせします。</p>
-
-            <h3>特別手当支給の条件</h3>
-            <ul class="conditions">
-                <li>クオリティー（清掃不備・クレームがないこと）</li>
-                <li>協力性（柔軟なシフト対応、備品管理への協力）</li>
-                <li>コミュニケーション（報告や連絡の丁寧さ、礼節）</li>
+            <ul>
+                <li>清掃のクオリティが高いこと</li>
+                <li>協力的な姿勢が評価されること</li>
             </ul>
-        </section>
-
-        <section>
-            <h3>✨ 特別手当の期間拡大 ✨</h3>
-            <p>今年は、昨年よりも特別手当の対象期間が拡大します。</p>
-            <p class="highlight">対象期間：12月21日から1月5日まで</p>
-            <p>新たに追加された日程（12月21日～23日、1月4日～5日）は <span class="important">3割増し</span> となります。</p>
-        </section>
-
-        <section>
-            <h3>🎁 お年玉手当のご案内 🎁</h3>
-            <p>特に頑張ってくれた上位5名の方に、お年玉手当をプレゼントします！</p>
-        </section>
-
-        <section>
-            <h3>⭐ 報酬詳細 ⭐</h3>
-            <table>
-                <caption>特別手当の報酬詳細</caption>
-                <thead>
-                    <tr>
-                        <th>日付</th>
-                        <th>増加率</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>12月21日～23日</td>
-                        <td>3割増し</td>
-                    </tr>
-                    <tr>
-                        <td>12月24日～30日</td>
-                        <td>3割増し</td>
-                    </tr>
-                    <tr>
-                        <td>12月31日</td>
-                        <td>5割増し</td>
-                    </tr>
-                    <tr>
-                        <td>1月1日</td>
-                        <td>10割増し</td>
-                    </tr>
-                    <tr>
-                        <td>1月2日～3日</td>
-                        <td>5割増し</td>
-                    </tr>
-                    <tr>
-                        <td>1月4日～5日</td>
-                        <td>3割増し</td>
-                    </tr>
-                </tbody>
-            </table>
         </section>
 
         <div class="home-button">
