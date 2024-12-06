@@ -7,7 +7,7 @@
     <meta name="description" content="くくるからのお知らせページ。最新情報や重要なお知らせをお届けします。">
     <meta name="keywords" content="くくる, お知らせ, 清掃, シフト">
     
-    <!-- Google Fontsの追加（オプション） -->
+    <!-- Google Fontsの追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- 内部CSSの追加 -->
@@ -26,6 +26,7 @@
             --font-family: 'Roboto', sans-serif;
             --transition-speed: 0.3s;
             --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --max-width: 1200px;
         }
 
         /* ダークテーマ用の変数 */
@@ -56,10 +57,19 @@
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
+        /* コンテナの追加 */
+        .container {
+            max-width: var(--max-width);
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
         /* ヘッダーのスタイル */
         header {
             width: 100%;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         h1 {
@@ -95,11 +105,13 @@
             border-radius: 5px;
             transition: background-color var(--transition-speed), color var(--transition-speed);
             font-size: 1rem;
+            text-align: center;
         }
 
-        nav a:hover {
+        nav a:hover, nav a:focus {
             background-color: var(--color-link-hover);
             color: #ffffff;
+            outline: none;
         }
 
         /* 注目メッセージのスタイル */
@@ -109,6 +121,7 @@
             font-size: 1.8em;
             margin-top: 30px;
             animation: pulse 1.5s infinite;
+            text-align: center;
         }
 
         /* 拡大縮小アニメーション */
@@ -127,7 +140,7 @@
             border-color: var(--color-link-bg);
         }
 
-        body.dark-theme a:hover {
+        body.dark-theme a:hover, body.dark-theme a:focus {
             background-color: var(--color-link-hover);
             color: #121212;
         }
@@ -148,9 +161,10 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-theme-toggle:hover {
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
             background-color: var(--color-button-hover);
             transform: rotate(20deg);
+            outline: none;
         }
 
         /* フッターのスタイル */
@@ -182,6 +196,10 @@
             .highlight {
                 font-size: 1.5em;
             }
+
+            .container {
+                padding: 10px;
+            }
         }
 
         /* アニメーションを減らすユーザー向け設定 */
@@ -193,34 +211,36 @@
     </style>
 </head>
 <body>
-    <!-- テーマ切り替えボタン -->
-    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
+    <div class="container">
+        <!-- テーマ切り替えボタン -->
+        <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
 
-    <header>
-        <h1>くくるからのお知らせ</h1>
-    </header>
-    <main>
-        <p>いつもお世話になっております。</p>
-        <p>このページでは、くくるからの最新のお知らせをお届けします。</p>
+        <header>
+            <h1>くくるからのお知らせ</h1>
+        </header>
+        <main>
+            <p style="text-align: center;">いつもお世話になっております。</p>
+            <p style="text-align: center;">このページでは、くくるからの最新のお知らせをお届けします。</p>
 
-        <!-- ナビゲーション -->
-        <nav aria-label="主要ナビゲーション">
-            <ul>
-                <li><a href="search.html" title="現場検索ツールを利用する">クルーの皆様へ（現場検索ツール）</a></li>
-                <li><a href="new-years-holidays.html" title="年末年始のお知らせを見る">年末年始のお知らせ（✨特別手当の期間拡大✨）</a></li>
-                <li><a href="shift.html" title="1月前半のシフトを提出する">1月前半のシフト提出願い</a></li>
-                <li><a href="baggage.html" title="清掃中のゲスト様荷物先置きについて確認">清掃中のゲスト様荷物先置きに関して</a></li>
-                <li><a href="Guest House Manual Crew Cleaning Manual.html" title="ハウスマニュアルと清掃マニュアル">ハウスマニュアルと清掃マニュアル</a></li>
-                <li><a href="example.html" title="事例">清掃事例</a></li>
-            </ul>
-        </nav>
+            <!-- ナビゲーション -->
+            <nav aria-label="主要ナビゲーション">
+                <ul>
+                    <li><a href="search.html" title="現場検索ツールを利用する">クルーの皆様へ（現場検索ツール）</a></li>
+                    <li><a href="new-years-holidays.html" title="年末年始のお知らせを見る">年末年始のお知らせ（✨特別手当の期間拡大✨）</a></li>
+                    <li><a href="shift.html" title="1月前半のシフトを提出する">1月前半のシフト提出願い</a></li>
+                    <li><a href="baggage.html" title="清掃中のゲスト様荷物先置きについて確認">清掃中のゲスト様荷物先置きに関して</a></li>
+                    <li><a href="Guest House Manual Crew Cleaning Manual.html" title="ハウスマニュアルと清掃マニュアル">ハウスマニュアルと清掃マニュアル</a></li>
+                    <li><a href="example.html" title="事例">清掃事例</a></li>
+                </ul>
+            </nav>
 
-        <!-- 注目メッセージ -->
-        <p class="highlight">随時更新中！！乞うご期待！！</p>
-    </main>
-    <footer>
-        <p>&copy; 2024 くくるから</p>
-    </footer>
+            <!-- 注目メッセージ -->
+            <p class="highlight">随時更新中！！乞うご期待！！</p>
+        </main>
+        <footer>
+            <p>&copy; 2024 くくるから</p>
+        </footer>
+    </div>
 
     <!-- JavaScript -->
     <script>
