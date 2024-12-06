@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マニュアル設置のご案内</title>
+    <title>ハウスマニュアルと清掃マニュアル</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -68,6 +68,22 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        .home-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+        .home-link:hover {
+            background: #2c3e50;
+        }
         footer {
             text-align: center;
             font-size: 0.9rem;
@@ -79,7 +95,7 @@
 <body>
     <div class="container">
         <h1>マニュアル設置のご案内</h1>
-
+        
         <div class="section">
             <p>皆様お疲れ様です☺️</p>
             <p>既に実施させていただいております物件もございますが、ゲスト用ハウスマニュアル（はまか自社管理物件）＆クルーさん用清掃マニュアル（全物件）へ設置することになりました❗</p>
@@ -117,10 +133,15 @@
             <h2>クルーさん用清掃マニュアル</h2>
             <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/crew.jpg?raw=true" alt="クルーさん用清掃マニュアル">
         </div>
+
+        <!-- ホームに戻るボタン -->
+        <div class="section" style="text-align: center;">
+            <a href="index.html" class="home-link">ホームに戻る</a>
+        </div>
     </div>
 
     <footer>
-        &copy; 2024 はまか運営チーム
+        <p>&copy; 2024 くくるから</p>
     </footer>
 </body>
 </html>
