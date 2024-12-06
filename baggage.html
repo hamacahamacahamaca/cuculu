@@ -7,21 +7,30 @@
     <meta name="description" content="清掃中のゲスト様荷物先置きに関するお知らせ。クルーの皆様への重要な情報を提供します。">
     <meta name="keywords" content="清掃, ゲスト, 荷物先置き, お知らせ, クルー">
     
+    <!-- Google Fontsの追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesomeの追加（アイコン使用のため） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <!-- 内部CSSの追加 -->
     <style>
         /* CSS変数の定義 */
         :root {
             --color-background: #f9f9f9;
             --color-text: #333333;
-            --color-primary: #0073e6;
-            --color-secondary: #d32f2f;
-            --color-highlight: #ffeb3b;
+            --color-primary: #0073e6; /* 青色 */
+            --color-secondary: #d32f2f; /* 赤色 */
+            --color-highlight: #ffeb3b; /* 黄色 */
             --color-button-bg: #0073e6;
             --color-button-hover: #005bb5;
             --color-link-bg: #0073e6;
             --color-link-hover: #005bb5;
-            --font-family: 'Arial', sans-serif;
+            --color-card-bg: #ffffff;
+            --color-card-shadow: rgba(0, 0, 0, 0.1);
+            --font-family: 'Roboto', sans-serif;
             --transition-speed: 0.3s;
+            --max-width: 1200px;
         }
 
         /* ダークテーマ用の変数 */
@@ -35,6 +44,8 @@
             --color-button-hover: #333333;
             --color-link-bg: #80d8ff;
             --color-link-hover: #4fc3f7;
+            --color-card-bg: #1e1e1e;
+            --color-card-shadow: rgba(255, 255, 255, 0.1);
         }
 
         /* 基本スタイル */
@@ -42,19 +53,39 @@
             font-family: var(--font-family);
             background-color: var(--color-background);
             color: var(--color-text);
-            text-align: center;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
+            align-items: center;
             min-height: 100vh;
             transition: background-color var(--transition-speed), color var(--transition-speed);
+            text-align: center; /* 全体を中央揃え */
+        }
+
+        /* コンテナのスタイル */
+        .container {
+            background: var(--color-card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+            max-width: 800px;
+            width: 100%;
+            text-align: center; /* コンテナ内のテキストを中央揃え */
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
         }
 
         /* ヘッダーのスタイル */
         header {
             width: 100%;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         h1 {
@@ -82,47 +113,29 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-theme-toggle:hover {
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
             background-color: var(--color-button-hover);
             transform: rotate(20deg);
-        }
-
-        body.dark-theme .btn-theme-toggle {
-            background-color: var(--color-button-bg);
-            color: #fff;
-        }
-
-        body.dark-theme .btn-theme-toggle:hover {
-            background-color: var(--color-button-hover);
+            outline: none;
         }
 
         /* メインコンテンツのスタイル */
         main {
             flex: 1;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         section {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            width: 100%;
-            text-align: left;
-            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
-        }
-
-        body.dark-theme section {
-            background: #1e1e1e;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            text-align: center; /* セクション内のテキストを中央揃え */
         }
 
         p {
             line-height: 1.8;
             margin: 10px 0;
+            text-align: center; /* 段落を中央揃え */
         }
 
         .highlight {
@@ -132,19 +145,26 @@
             padding: 10px;
             border-radius: 5px;
             margin: 20px 0;
+            display: inline-block;
+            text-align: center; /* ハイライト部分を中央揃え */
         }
 
         ol {
-            padding-left: 20px;
-            margin: 10px 0;
+            padding-left: 0;
+            list-style-position: inside;
+            display: inline-block; /* オーダーリストを中央揃え */
+            text-align: center; /* リスト全体を中央揃え */
         }
 
         li {
             margin-bottom: 10px;
+            text-align: center; /* リスト項目も中央揃え */
         }
 
         .home-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: var(--color-link-bg);
             color: #fff;
             text-decoration: none;
@@ -154,10 +174,13 @@
             font-size: 1.2em;
             transition: background-color var(--transition-speed);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            gap: 8px;
+            justify-content: center;
         }
 
-        .home-link:hover {
+        .home-link:hover, .home-link:focus {
             background-color: var(--color-link-hover);
+            outline: none;
         }
 
         footer {
@@ -180,6 +203,20 @@
                 font-size: 1rem;
             }
 
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                border-bottom: 1px solid var(--color-primary);
+            }
+
             .home-link {
                 padding: 10px 20px;
                 font-size: 1em;
@@ -188,34 +225,66 @@
             .highlight {
                 font-size: 1em;
             }
+
+            ol {
+                padding-left: 15px;
+            }
+
+            li {
+                text-align: center; /* リスト項目も中央揃え */
+            }
+
+            /* モバイルでアイコンを非表示にする場合 */
+            .home-link i, .btn-theme-toggle i {
+                display: none;
+            }
+        }
+
+        /* アニメーションを減らすユーザー向け設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .container {
+                animation: none;
+            }
+        }
+
+        /* フェードインアニメーションの定義 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <!-- テーマ切り替えボタン -->
-    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">
+        🌓
+    </button>
 
     <header>
         <h1>清掃中のゲスト様荷物先置きに関して</h1>
     </header>
     <main>
-        <section>
-            <p>清掃クルーの皆様へ</p>
-            <p>いつも清掃にご尽力いただきありがとうございます。</p>
-            <p>本日のお知らせはお荷物先置きに関してです。</p>
+        <div class="container">
+            <section>
+                <p>清掃クルーの皆様へ</p>
+                <p>いつも清掃にご尽力いただきありがとうございます。</p>
+                <p>本日のお知らせはお荷物先置きに関してです。</p>
 
-            <ol>
-                <li>ゲスト様には13時からお荷物のみ先にお預かりできる旨をお伝えしています。そのため、ゲスト様がお見えになる場合があります。</li>
-                <li>今後、アサイン表のメモに記載はなくなります。</li>
-            </ol>
+                <ol>
+                    <li>ゲスト様には13時からお荷物のみ先にお預かりできる旨をお伝えしています。そのため、ゲスト様がお見えになる場合があります。</li>
+                    <li>今後、アサイン表のメモに記載はなくなります。</li>
+                </ol>
 
-            <p class="highlight">※あくまでもお荷物のみで、清掃中の入室は不可です。</p>
+                <p class="highlight">※あくまでもお荷物のみで、清掃中の入室は不可です。</p>
 
-            <p>ご協力宜しくお願い致します。</p>
+                <p>ご協力宜しくお願い致します。</p>
 
-            <!-- ホームに戻るボタン -->
-            <a href="index.html" class="home-link">ホームに戻る</a>
-        </section>
+                <!-- ホームに戻るボタン -->
+                <a href="index.html" class="home-link" title="ホームページに戻る">
+                    <i class="fas fa-home"></i> ホームに戻る
+                </a>
+            </section>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 くくるから</p>
