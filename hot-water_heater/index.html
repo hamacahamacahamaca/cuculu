@@ -7,22 +7,28 @@
     <meta name="description" content="給湯器の動作確認に関する重要なお知らせ。クルーの皆様への指示を含みます。">
     <meta name="keywords" content="清掃, 給湯器, 確認, 注意事項, クルー">
 
+    <!-- Google Fontsの追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesomeの追加（オプション） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- 内部CSSの追加 -->
     <style>
         /* CSS変数の定義 */
         :root {
             --color-background: #f9f9f9;
             --color-text: #333333;
-            --color-primary: #d9534f;
-            --color-secondary: #ff5252;
-            --color-highlight-bg: #ffeb3b;
+            --color-primary: #d9534f; /* 赤色 */
+            --color-secondary: #ff5252; /* 明るい赤 */
+            --color-highlight-bg: #fff8dc; /* やわらかい黄色 */
             --color-button-bg: #d9534f;
             --color-button-hover: #c9302c;
             --color-link-bg: #d9534f;
             --color-link-hover: #c9302c;
             --color-card-bg: #ffffff;
             --color-card-shadow: rgba(0, 0, 0, 0.1);
-            --font-family: 'Arial', sans-serif;
+            --font-family: 'Roboto', sans-serif;
             --transition-speed: 0.3s;
         }
 
@@ -50,13 +56,15 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
+            align-items: center;
             min-height: 100vh;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         /* ヘッダーのスタイル */
         header {
-            margin-bottom: 30px;
+            width: 100%;
+            margin-bottom: 20px;
             text-align: center; /* 中央揃え */
         }
 
@@ -93,6 +101,7 @@
         /* メインコンテンツのスタイル */
         main {
             flex: 1;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -107,6 +116,7 @@
             width: 100%;
             text-align: left;
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+            animation: fadeIn 1.5s ease-in;
         }
 
         body.dark-theme .container {
@@ -119,12 +129,17 @@
             margin: 10px 0;
         }
 
-        h2 {
+        h2, h3 {
             color: var(--color-primary);
             margin-bottom: 15px;
             font-size: 1.8rem;
             border-bottom: 2px solid var(--color-primary);
             padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--color-primary);
         }
 
         ul {
@@ -134,16 +149,21 @@
         }
 
         li {
-            margin: 15px 0;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background-color: var(--color-highlight-bg);
+            border: 1px solid #ffd700;
+            padding: 10px;
+            display: inline-block;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
         }
 
         .important {
-            background-color: var(--color-highlight-bg);
-            color: #000;
+            color: var(--color-secondary);
             font-weight: bold;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 20px 0;
         }
 
         .emoji {
@@ -162,7 +182,8 @@
         /* ボタンセクションのスタイル */
         .buttons {
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* ボタンを上下に並べる */
+            align-items: center; /* 中央揃え */
             gap: 15px;
             margin-top: 30px;
         }
@@ -176,6 +197,9 @@
             font-size: 1.1rem;
             transition: background-color var(--transition-speed);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .button:hover {
@@ -184,10 +208,11 @@
 
         /* フッターのスタイル */
         footer {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: var(--color-text);
+            width: 100%;
             text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--color-text);
         }
 
         /* レスポンシブデザイン */
@@ -206,17 +231,53 @@
                 padding: 20px;
             }
 
-            h2 {
+            h2, h3 {
                 font-size: 1.5rem;
+                border-bottom: 1px solid var(--color-primary);
             }
 
-            a.button {
-                font-size: 1rem;
+            table, th, td {
+                font-size: 0.9em;
+            }
+
+            .button {
                 padding: 10px 20px;
+                font-size: 1rem;
             }
 
-            .important {
+            .highlight {
                 font-size: 1em;
+            }
+
+            .button i {
+                display: none; /* モバイルではアイコンを非表示にする場合 */
+            }
+        }
+
+        /* アニメーションを減らすユーザー向け設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .highlight {
+                animation: none;
+            }
+
+            .container {
+                animation: none;
+            }
+        }
+
+        /* フェードインアニメーションの定義 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 拡大縮小アニメーション */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
             }
         }
     </style>
@@ -247,8 +308,8 @@
 
             <!-- ボタンセクション -->
             <div class="buttons">
-                <a href="/cuculu/" class="button">ホームに戻る</a>
                 <a href="/cuculu/example/" class="button">事例に戻る</a>
+                <a href="/cuculu/" class="button">ホームに戻る</a>
             </div>
         </div>
     </main>
