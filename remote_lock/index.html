@@ -10,10 +10,10 @@
     <!-- Google Fontsの追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesomeの追加（オプション） -->
+    <!-- Font Awesomeの追加 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- 内部CSSの追加 -->
+    <!-- 内部CSS -->
     <style>
         /* CSS変数の定義 */
         :root {
@@ -65,7 +65,7 @@
         header {
             width: 100%;
             margin-bottom: 20px;
-            text-align: center; /* 中央揃え */
+            text-align: center;
         }
 
         h1 {
@@ -98,15 +98,7 @@
             transform: rotate(20deg);
         }
 
-        /* メインコンテンツのスタイル */
-        main {
-            flex: 1;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
+        /* コンテナのスタイル */
         .container {
             background: var(--color-card-bg);
             padding: 30px;
@@ -114,14 +106,9 @@
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
-            text-align: left;
+            text-align: center;
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
-        }
-
-        body.dark-theme .container {
-            background: var(--color-card-bg);
-            box-shadow: 0 4px 8px var(--color-card-shadow);
         }
 
         p {
@@ -129,7 +116,7 @@
             margin: 10px 0;
         }
 
-        h2, h3 {
+        h2 {
             color: var(--color-primary);
             margin-bottom: 15px;
             font-size: 1.8rem;
@@ -137,52 +124,20 @@
             padding-bottom: 5px;
         }
 
-        h3 {
-            font-size: 1.5rem;
-            border-bottom: 1px solid var(--color-primary);
-        }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-
-        li {
-            margin: 10px 0;
-        }
-
-        .highlight {
-            background-color: var(--color-highlight-bg);
-            border: 1px solid #ffd700;
-            padding: 10px;
-            display: inline-block;
-            font-weight: bold;
-            animation: pulse 1.5s infinite;
-        }
-
-        .important {
-            color: var(--color-secondary);
-            font-weight: bold;
-        }
-
-        .emoji {
-            font-size: 1.2em;
-        }
-
         img {
             max-width: 100%;
             height: auto;
             border: 2px solid #ddd;
             border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            display: block;
         }
 
         /* ボタンセクションのスタイル */
         .buttons {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             gap: 15px;
             margin-top: 30px;
         }
@@ -221,63 +176,25 @@
                 border-bottom: 2px solid var(--color-primary);
             }
 
-            .btn-theme-toggle {
-                padding: 8px 12px;
-                font-size: 1rem;
-            }
-
             .container {
                 padding: 20px;
             }
 
-            h2, h3 {
+            h2 {
                 font-size: 1.5rem;
                 border-bottom: 1px solid var(--color-primary);
-            }
-
-            table, th, td {
-                font-size: 0.9em;
             }
 
             .button {
                 padding: 10px 20px;
                 font-size: 1rem;
             }
-
-            .highlight {
-                font-size: 1em;
-            }
-
-            .button i {
-                display: none; /* モバイルではアイコンを非表示にする場合 */
-            }
         }
 
-        /* アニメーションを減らすユーザー向け設定 */
-        @media (prefers-reduced-motion: reduce) {
-            .highlight {
-                animation: none;
-            }
-
-            .container {
-                animation: none;
-            }
-        }
-
-        /* フェードインアニメーションの定義 */
+        /* アニメーション */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 拡大縮小アニメーション */
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
         }
     </style>
 </head>
@@ -293,14 +210,14 @@
     <main>
         <div class="container">
             <section>
-                <p>今後、ドアの施錠忘れ防止のため、以下の写真を清掃報告アルバムにアップをお願いいたします<span class="emoji">❗</span></p>
+                <p>今後、ドアの施錠忘れ防止のため、以下の写真を清掃報告アルバムにアップをお願いいたします❗</p>
             </section>
 
             <section>
                 <h2>目的</h2>
                 <p>施錠されていないことで他のゲストが誤って入室してしまうことを防ぐためです。</p>
-                <p>誤って入室してしまった場合、再清掃が必要になってしまいます<span class="emoji">😱</span></p>
-                <p><strong class="important">必ず施錠確認をお願いいたします<span class="emoji">‼️</span></strong></p>
+                <p>誤って入室してしまった場合、再清掃が必要になってしまいます😱</p>
+                <p><strong>必ず施錠確認をお願いいたします‼️</strong></p>
             </section>
 
             <section>
@@ -313,19 +230,19 @@
 
             <section>
                 <h2>鍵が閉まっていなかった画像</h2>
-                <p>↓鍵が閉まっていなかった画像になります<span class="emoji">😨</span></p>
-                <p>清掃件数を抱えている時は気持ちが焦って施錠忘れが起きてしまいますので、一息ついて最終確認を必ずお願いいたします<span class="emoji">‼️</span></p>
+                <p>↓鍵が閉まっていなかった画像になります😨</p>
+                <p>清掃件数を抱えている時は気持ちが焦って施錠忘れが起きてしまいますので、一息ついて最終確認を必ずお願いいたします‼️</p>
                 <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock3.jpg?raw=true" alt="鍵が閉まっていない例">
             </section>
 
             <section>
-                <p>ご協力のほどよろしくお願いいたします<span class="emoji">🙏</span></p>
+                <p>ご協力のほどよろしくお願いいたします🙏</p>
             </section>
 
             <!-- ボタンセクション -->
             <div class="buttons">
-                <a href="/cuculu/" class="button" title="ホームページに戻る"><i class="fas fa-home"></i> ホームに戻る</a>
                 <a href="/cuculu/example/" class="button" title="事例に戻る"><i class="fas fa-clipboard-list"></i> 事例に戻る</a>
+                <a href="/cuculu/" class="button" title="ホームページに戻る"><i class="fas fa-home"></i> ホームに戻る</a>
             </div>
         </div>
     </main>
@@ -338,7 +255,6 @@
         // テーマ切り替え関数
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
-            // ユーザーのテーマ選好を保存
             if (document.body.classList.contains('dark-theme')) {
                 localStorage.setItem('theme', 'dark');
             } else {
@@ -346,8 +262,7 @@
             }
         }
 
-        // ページ読み込み時にテーマを設定
-        window.addEventListener('DOMContentLoaded', (event) => {
+        window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-theme');
