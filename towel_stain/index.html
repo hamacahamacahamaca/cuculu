@@ -6,13 +6,13 @@
     <title>タオルのシミに関する注意事項</title>
     <meta name="description" content="タオルのシミに関する注意事項。ゲスト様や近隣住民の皆様が快適に過ごせるよう、タオルの管理に関する重要なガイドラインをご確認ください。">
     <meta name="keywords" content="タオル, シミ, 注意事項, ゲスト, 近隣住民, 清掃">
-    
+
     <!-- Google Fontsの追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesomeの追加（アイコン使用のため） -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- 内部CSSの追加 -->
     <style>
         /* CSS変数の定義 */
@@ -96,15 +96,7 @@
             transform: rotate(20deg);
         }
 
-        /* メインコンテンツのスタイル */
-        main {
-            flex: 1;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
+        /* コンテナのスタイル */
         .container {
             background: var(--color-card-bg);
             padding: 30px;
@@ -112,14 +104,9 @@
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
-            text-align: left;
+            text-align: center; /* 文字を中央揃え */
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
-        }
-
-        body.dark-theme .container {
-            background: var(--color-card-bg);
-            box-shadow: 0 4px 8px var(--color-card-shadow);
         }
 
         p {
@@ -135,40 +122,22 @@
             padding-bottom: 5px;
         }
 
-        .important {
-            color: var(--color-secondary);
-            font-weight: bold;
-        }
-
-        .emoji {
-            font-size: 1.2em;
-        }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-
-        li {
-            margin: 10px 0;
-        }
-
         img {
             max-width: 100%;
             height: auto;
             border: 2px solid #ddd;
             border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto; /* 水平方向の中央揃え */
+            display: block;
         }
 
         /* ボタンセクションのスタイル */
         .buttons {
-            margin-top: 30px;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* ボタンを上下に並べる */
+            align-items: center; /* 中央揃え */
             gap: 15px;
+            margin-top: 30px;
         }
 
         .button {
@@ -199,53 +168,7 @@
             color: var(--color-text);
         }
 
-        /* レスポンシブデザイン */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-                border-bottom: 2px solid var(--color-primary);
-            }
-
-            .btn-theme-toggle {
-                padding: 8px 12px;
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-                border-bottom: 1px solid var(--color-primary);
-            }
-
-            .button {
-                padding: 8px 16px;
-                font-size: 1rem;
-            }
-
-            .highlight {
-                font-size: 1em;
-            }
-
-            .button i {
-                display: none; /* モバイルではアイコンを非表示にする場合 */
-            }
-        }
-
-        /* アニメーションを減らすユーザー向け設定 */
-        @media (prefers-reduced-motion: reduce) {
-            .container {
-                animation: none;
-            }
-
-            .btn-theme-toggle {
-                transition: none;
-            }
-        }
-
-        /* フェードインアニメーションの定義 */
+        /* アニメーション */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -270,9 +193,9 @@
 
             <section>
                 <h2>お願い</h2>
-                <ul>
-                    <li>ベッドメイクやタオル設置をする際は、必ずシミや汚れがないかご確認をお願いいたします<span class="emoji">🥺</span></li>
-                </ul>
+                <div>
+                    <p>ベッドメイクやタオル設置をする際は、必ずシミや汚れがないかご確認をお願いいたします<span class="emoji">🥺</span></p>
+                </div>
                 <p><strong class="important">清潔な状態でゲスト様をお迎えするため、チェックの徹底をよろしくお願いいたします。</strong></p>
             </section>
 
@@ -283,11 +206,11 @@
 
             <!-- ボタンセクション -->
             <div class="buttons">
-                <a href="/cuculu/" class="button" title="ホームページに戻る">
-                    <i class="fas fa-home"></i> ホームに戻る
-                </a>
                 <a href="/cuculu/example/" class="button" title="事例に戻る">
                     <i class="fas fa-clipboard-list"></i> 事例に戻る
+                </a>
+                <a href="/cuculu/" class="button" title="ホームページに戻る">
+                    <i class="fas fa-home"></i> ホームに戻る
                 </a>
             </div>
         </div>
