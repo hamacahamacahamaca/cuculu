@@ -3,15 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>施錠忘れ防止のお願い</title>
-    <meta name="description" content="施錠忘れ防止のための重要なお知らせ。清掃クルーの皆様への具体的な指示と注意事項を含みます。">
-    <meta name="keywords" content="施錠忘れ, 防止, 清掃, お知らせ, 安全">
-
+    <title>共用部清掃連絡</title>
     <!-- Google Fontsの追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesomeの追加 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- 内部CSS -->
     <style>
@@ -19,32 +13,15 @@
         :root {
             --color-background: #f9f9f9;
             --color-text: #333333;
-            --color-primary: #d9534f; /* 赤色 */
-            --color-secondary: #ff5252; /* 明るい赤 */
-            --color-highlight-bg: #fff8dc; /* やわらかい黄色 */
-            --color-button-bg: #d9534f;
-            --color-button-hover: #c9302c;
-            --color-link-bg: #d9534f;
-            --color-link-hover: #c9302c;
+            --color-primary: #0073e6; /* 青色 */
+            --color-secondary: #d9534f; /* 赤色 */
+            --color-highlight-bg: #fffbe6; /* 淡い黄色 */
+            --color-button-bg: #0073e6;
+            --color-button-hover: #005bb5;
             --color-card-bg: #ffffff;
             --color-card-shadow: rgba(0, 0, 0, 0.1);
             --font-family: 'Roboto', sans-serif;
             --transition-speed: 0.3s;
-        }
-
-        /* ダークテーマ用の変数 */
-        body.dark-theme {
-            --color-background: #121212;
-            --color-text: #ffffff;
-            --color-primary: #ff5252;
-            --color-secondary: #ff4081;
-            --color-highlight-bg: #fbc02d;
-            --color-button-bg: #555555;
-            --color-button-hover: #333333;
-            --color-link-bg: #ff5252;
-            --color-link-hover: #e040fb;
-            --color-card-bg: #1e1e1e;
-            --color-card-shadow: rgba(255, 255, 255, 0.1);
         }
 
         /* 基本スタイル */
@@ -77,27 +54,6 @@
             display: inline-block;
         }
 
-        /* テーマ切り替えボタンのスタイル */
-        .btn-theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            background-color: var(--color-button-bg);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color var(--transition-speed), transform 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-theme-toggle:hover {
-            background-color: var(--color-button-hover);
-            transform: rotate(20deg);
-        }
-
         /* コンテナのスタイル */
         .container {
             background: var(--color-card-bg);
@@ -106,31 +62,34 @@
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
-            text-align: center;
-            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
+            text-align: center;
         }
 
         p {
             line-height: 1.8;
-            margin: 10px 0;
+            margin: 15px 0;
+            text-align: center;
         }
 
-        h2 {
+        .important {
+            background-color: var(--color-highlight-bg);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--color-secondary);
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        .action {
             color: var(--color-primary);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--color-primary);
-            padding-bottom: 5px;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            margin: 20px auto;
-            display: block;
+            font-weight: bold;
+            margin-top: 20px;
         }
 
         /* ボタンセクションのスタイル */
@@ -143,7 +102,7 @@
         }
 
         .button {
-            background-color: var(--color-link-bg);
+            background-color: var(--color-button-bg);
             color: #fff;
             text-decoration: none;
             padding: 12px 25px;
@@ -157,38 +116,16 @@
         }
 
         .button:hover {
-            background-color: var(--color-link-hover);
+            background-color: var(--color-button-hover);
         }
 
-        /* フッターのスタイル */
+        /* フッター */
         footer {
             width: 100%;
             text-align: center;
             margin-top: 40px;
             font-size: 0.9em;
             color: var(--color-text);
-        }
-
-        /* レスポンシブデザイン */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-                border-bottom: 2px solid var(--color-primary);
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-                border-bottom: 1px solid var(--color-primary);
-            }
-
-            .button {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
         }
 
         /* アニメーション */
@@ -199,75 +136,29 @@
     </style>
 </head>
 <body>
-    <!-- テーマ切り替えボタン -->
-    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">
-        🌓
-    </button>
-
     <header>
-        <h1>施錠忘れ防止のお願い</h1>
+        <h1>共有部の清掃について</h1>
     </header>
     <main>
         <div class="container">
-            <section>
-                <p>今後、ドアの施錠忘れ防止のため、以下の写真を清掃報告アルバムにアップをお願いいたします❗</p>
-            </section>
+            <p><span class="emoji">😨</span> 共用部ゴミストッカー周りのゴミ散乱が確認されました。</p>
+            <p>横山さんが対応し、エントランスおよびゴミストッカー周り（特にゴミが散乱しやすい箇所）を綺麗にしてくださいました。ご協力ありがとうございます<span class="emoji">🥺</span></p>
 
-            <section>
-                <h2>目的</h2>
-                <p>施錠されていないことで他のゲストが誤って入室してしまうことを防ぐためです。</p>
-                <p>誤って入室してしまった場合、再清掃が必要になってしまいます😱</p>
-                <p><strong>必ず施錠確認をお願いいたします‼️</strong></p>
-            </section>
+            <div class="important">
+                玄関やエントランスはゲスト様が最初に目にする場所です。必ずゴミがないか確認し、整理整頓を徹底してください！
+            </div>
 
-            <section>
-                <h2>施錠確認の写真例</h2>
-                <div class="image-gallery">
-                    <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock1.jpg?raw=true" alt="施錠確認例1">
-                    <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock2.jpg?raw=true" alt="施錠確認例2">
-                </div>
-            </section>
-
-            <section>
-                <h2>鍵が閉まっていなかった画像</h2>
-                <p>↓鍵が閉まっていなかった画像になります😨</p>
-                <p>清掃件数を抱えている時は気持ちが焦って施錠忘れが起きてしまいますので、一息ついて最終確認を必ずお願いいたします‼️</p>
-                <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/remote_lock3.jpg?raw=true" alt="鍵が閉まっていない例">
-            </section>
-
-            <section>
-                <p>ご協力のほどよろしくお願いいたします🙏</p>
-            </section>
+            <p class="action">お手数をおかけしますが、ご理解とご協力をよろしくお願いいたします<span class="emoji">😌</span></p>
 
             <!-- ボタンセクション -->
             <div class="buttons">
-                <a href="/cuculu/example/" class="button" title="事例に戻る"><i class="fas fa-clipboard-list"></i> 事例に戻る</a>
-                <a href="/cuculu/" class="button" title="ホームページに戻る"><i class="fas fa-home"></i> ホームに戻る</a>
+                <a href="/cuculu/example/" class="button">事例に戻る</a>
+                <a href="/cuculu/" class="button">ホームに戻る</a>
             </div>
         </div>
     </main>
     <footer>
         <p>&copy; 2024 くくるクリーニング</p>
     </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // テーマ切り替え関数
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-            if (document.body.classList.contains('dark-theme')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-theme');
-            }
-        });
-    </script>
 </body>
 </html>
