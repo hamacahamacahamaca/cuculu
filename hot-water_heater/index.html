@@ -10,10 +10,10 @@
     <!-- Google Fontsの追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesomeの追加（オプション） -->
+    <!-- Font Awesomeの追加 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- 内部CSSの追加 -->
+    <!-- 内部CSS -->
     <style>
         /* CSS変数の定義 */
         :root {
@@ -21,7 +21,6 @@
             --color-text: #333333;
             --color-primary: #d9534f; /* 赤色 */
             --color-secondary: #ff5252; /* 明るい赤 */
-            --color-highlight-bg: #fff8dc; /* やわらかい黄色 */
             --color-button-bg: #d9534f;
             --color-button-hover: #c9302c;
             --color-link-bg: #d9534f;
@@ -38,7 +37,6 @@
             --color-text: #ffffff;
             --color-primary: #ff5252;
             --color-secondary: #ff4081;
-            --color-highlight-bg: #fbc02d;
             --color-button-bg: #555555;
             --color-button-hover: #333333;
             --color-link-bg: #ff5252;
@@ -65,7 +63,7 @@
         header {
             width: 100%;
             margin-bottom: 20px;
-            text-align: center; /* 中央揃え */
+            text-align: center;
         }
 
         h1 {
@@ -98,15 +96,7 @@
             transform: rotate(20deg);
         }
 
-        /* メインコンテンツのスタイル */
-        main {
-            flex: 1;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
+        /* コンテナのスタイル */
         .container {
             background: var(--color-card-bg);
             padding: 30px;
@@ -114,14 +104,9 @@
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
-            text-align: left;
+            text-align: center;
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
-        }
-
-        body.dark-theme .container {
-            background: var(--color-card-bg);
-            box-shadow: 0 4px 8px var(--color-card-shadow);
         }
 
         p {
@@ -129,7 +114,7 @@
             margin: 10px 0;
         }
 
-        h2, h3 {
+        h2 {
             color: var(--color-primary);
             margin-bottom: 15px;
             font-size: 1.8rem;
@@ -137,37 +122,13 @@
             padding-bottom: 5px;
         }
 
-        h3 {
-            font-size: 1.5rem;
-            border-bottom: 1px solid var(--color-primary);
+        .requests {
+            text-align: center;
+            margin: 20px 0;
         }
 
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
+        .requests p {
             margin: 10px 0;
-        }
-
-        li {
-            margin: 10px 0;
-        }
-
-        .highlight {
-            background-color: var(--color-highlight-bg);
-            border: 1px solid #ffd700;
-            padding: 10px;
-            display: inline-block;
-            font-weight: bold;
-            animation: pulse 1.5s infinite;
-        }
-
-        .important {
-            color: var(--color-secondary);
-            font-weight: bold;
-        }
-
-        .emoji {
-            font-size: 1.2em;
         }
 
         img {
@@ -175,15 +136,22 @@
             height: auto;
             border: 2px solid #ddd;
             border-radius: 8px;
-            margin-top: 20px;
+            margin: 20px auto;
+            display: block;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .important {
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin-top: 20px;
         }
 
         /* ボタンセクションのスタイル */
         .buttons {
             display: flex;
-            flex-direction: column; /* ボタンを上下に並べる */
-            align-items: center; /* 中央揃え */
+            flex-direction: column;
+            align-items: center;
             gap: 15px;
             margin-top: 30px;
         }
@@ -215,70 +183,10 @@
             color: var(--color-text);
         }
 
-        /* レスポンシブデザイン */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-                border-bottom: 2px solid var(--color-primary);
-            }
-
-            .btn-theme-toggle {
-                padding: 8px 12px;
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            h2, h3 {
-                font-size: 1.5rem;
-                border-bottom: 1px solid var(--color-primary);
-            }
-
-            table, th, td {
-                font-size: 0.9em;
-            }
-
-            .button {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-
-            .highlight {
-                font-size: 1em;
-            }
-
-            .button i {
-                display: none; /* モバイルではアイコンを非表示にする場合 */
-            }
-        }
-
-        /* アニメーションを減らすユーザー向け設定 */
-        @media (prefers-reduced-motion: reduce) {
-            .highlight {
-                animation: none;
-            }
-
-            .container {
-                animation: none;
-            }
-        }
-
-        /* フェードインアニメーションの定義 */
+        /* アニメーション */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 拡大縮小アニメーション */
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
         }
     </style>
 </head>
@@ -295,16 +203,16 @@
             <p>ゲスト様よりお湯が出ないとのお問い合わせがありました。</p>
 
             <h2>お願い</h2>
-            <ul>
-                <li>給湯器の電源がONになっていることを必ずご確認ください。</li>
-                <li>清掃時にお湯が出ているか確認を徹底してください。</li>
-                <li>清掃完了報告アルバムへ、給湯器の「42度設定」の画像を必ず添付してください。</li>
-            </ul>
+            <div class="requests">
+                <p>給湯器の電源がONになっていることを必ずご確認ください。</p>
+                <p>清掃時にお湯が出ているか確認を徹底してください。</p>
+                <p>清掃完了報告アルバムへ、給湯器の「42度設定」の画像を必ず添付してください。</p>
+            </div>
 
             <h2>参考画像</h2>
             <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/hot-water_heater.jpg?raw=true" alt="給湯器42度設定画像">
 
-            <p class="important">ゲスト様が快適に過ごせるよう、ご協力をよろしくお願いいたします。<span class="emoji">🙏</span></p>
+            <p class="important">ゲスト様が快適に過ごせるよう、ご協力をよろしくお願いいたします。🙏</p>
 
             <!-- ボタンセクション -->
             <div class="buttons">
@@ -320,10 +228,8 @@
 
     <!-- JavaScript -->
     <script>
-        // テーマ切り替え関数
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
-            // ユーザーのテーマ選好を保存
             if (document.body.classList.contains('dark-theme')) {
                 localStorage.setItem('theme', 'dark');
             } else {
@@ -331,8 +237,7 @@
             }
         }
 
-        // ページ読み込み時にテーマを設定
-        window.addEventListener('DOMContentLoaded', (event) => {
+        window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-theme');
