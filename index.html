@@ -65,6 +65,12 @@
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
         }
 
+        .narrow-section {
+            max-width: 600px; /* 横幅を狭く設定 */
+            width: 90%; /* ウィンドウ幅に応じた割合指定 */
+            padding: 20px; /* 必要に応じて余白を調整 */
+        }
+
         .links-section p {
             margin: 0 0 30px;
             font-size: 1.4rem;
@@ -161,84 +167,9 @@
 
         /* 追加: レスポンシブデザイン */
         @media (max-width: 600px) {
-            body {
+            .narrow-section {
+                max-width: 90%; /* スマホ向けにさらに狭める */
                 padding: 15px;
-            }
-
-            h1 {
-                font-size: 2rem;
-                margin-bottom: 30px;
-            }
-
-            .links-section {
-                padding: 20px 15px;
-                margin-bottom: 30px;
-            }
-
-            .links-section p {
-                font-size: 1.2rem;
-                margin-bottom: 20px;
-            }
-
-            .links-section h2 {
-                font-size: 1.5rem;
-                margin: 20px 0 15px;
-            }
-
-            nav a {
-                padding: 15px 20px;
-                font-size: 1rem;
-            }
-
-            .highlight {
-                font-size: 1.5rem;
-                margin-top: 30px;
-            }
-
-            .btn-theme-toggle {
-                padding: 10px 14px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (min-width: 601px) and (max-width: 900px) {
-            body {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2.2rem;
-                margin-bottom: 35px;
-            }
-
-            .links-section {
-                padding: 30px 20px;
-                margin-bottom: 35px;
-            }
-
-            .links-section p {
-                font-size: 1.3rem;
-                margin-bottom: 25px;
-            }
-
-            .links-section h2 {
-                font-size: 1.8rem;
-                margin: 25px 0 18px;
-            }
-
-            nav a {
-                padding: 18px 25px;
-                font-size: 1.1rem;
-            }
-
-            .highlight {
-                font-size: 1.6rem;
-                margin-top: 35px;
-            }
-
-            .btn-theme-toggle {
-                padding: 11px 16px;
-                font-size: 1.3rem;
             }
         }
     </style>
@@ -247,7 +178,7 @@
     <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
     <h1>くくるからのお知らせ</h1>
 
-    <div class="links-section">
+    <div class="links-section narrow-section">
         <p>いつもお世話になっております。<br>このページでは、くくるからの最新のお知らせをお届けします。</p>
         <h2>お知らせリンク集</h2>
         <nav aria-label="主要ナビゲーション">
