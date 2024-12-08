@@ -79,18 +79,22 @@
         }
 
         nav li {
-            margin: 20px 0;
+            margin: 10px 0; /* マージンを20pxから10pxに変更 */
         }
 
         nav a {
             color: var(--color-link-bg);
             text-decoration: none;
-            display: inline-block;
-            padding: 10px 15px; /* 内側の余白を小さく */
-            border: 2px solid var(--color-link-bg); /* 枠線を細く */
-            border-radius: 8px; /* 角を丸く */
-            font-size: 1rem; /* フォントサイズを小さく */
+            display: inline-flex; /* inline-blockからinline-flexに変更 */
+            align-items: center;
+            justify-content: center;
+            gap: 8px; /* アイコンとの隙間を確保 */
+            padding: 10px 20px; /* パディングを10px 15pxから10px 20pxに変更 */
+            border: 2px solid var(--color-link-bg);
+            border-radius: 5px; /* ボーダー半径を8pxから5pxに変更 */
+            font-size: 1.2rem; /* フォントサイズを1remから1.2remに変更 */
             transition: background-color var(--transition-speed), color var(--transition-speed);
+            margin: 10px 0; /* 垂直方向のマージンを追加 */
         }
 
         nav a:hover, nav a:focus {
@@ -118,6 +122,40 @@
         footer {
             margin-top: 40px;
             font-size: 1rem;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            .links-section {
+                padding: 20px;
+            }
+
+            .links-section h2 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+        }
+
+        /* アニメーションを減らすユーザー向け設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .links-section {
+                animation: none;
+            }
+        }
+
+        /* フェードインアニメーションの定義 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
