@@ -14,90 +14,90 @@
     <!-- Google Fontsの追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- 内部CSSの追加 -->
     <style>
-        /* CSS変数の定義 */
         :root {
             --color-background: #f9f9f9;
             --color-text: #333333;
-            --color-primary: #1a73e8; /* ソフトな青色 */
-            --color-secondary: #d9534f; /* 赤色 */
+            --color-primary: #1a73e8;
+            --color-secondary: #d9534f;
             --color-link-bg: #0073e6;
             --color-link-hover: #005bb5;
-            --color-button-bg: #0073e6;
-            --color-button-hover: #005bb5;
-            --color-highlight: #ffeb3b;
-            --font-family: 'Roboto', sans-serif;
+            --color-card-bg: #ffffff;
+            --color-card-shadow: rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --max-width: 1200px;
         }
 
-        /* ダークテーマ用の変数 */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
         body.dark-theme {
             --color-background: #121212;
             --color-text: #ffffff;
             --color-primary: #80d8ff;
-            --color-secondary: #ff5252;
             --color-link-bg: #80d8ff;
             --color-link-hover: #4fc3f7;
-            --color-button-bg: #555555;
-            --color-button-hover: #333333;
-            --color-highlight: #fbc02d;
-            --box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-        }
-
-        /* 基本スタイル */
-        body {
-            font-family: var(--font-family);
-            background-color: var(--color-background);
-            color: var(--color-text);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-        }
-
-        /* コンテナの追加 */
-        .container {
-            max-width: var(--max-width);
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        /* ヘッダーのスタイル */
-        header {
-            width: 100%;
-            margin-bottom: 20px;
-            text-align: center;
+            --color-card-bg: #1e1e1e;
+            --color-card-shadow: rgba(255, 255, 255, 0.1);
         }
 
         h1 {
             color: var(--color-primary);
             font-size: 2.5rem;
-            margin: 0;
-            padding: 10px 0;
-            border-bottom: 3px solid var(--color-primary);
-            display: inline-block;
+            margin: 20px 0;
         }
 
-        /* ナビゲーションのスタイル */
+        .links-section {
+            background: var(--color-card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+            max-width: 800px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-in;
+            text-align: center;
+        }
+
+        .links-section p {
+            margin: 0 0 20px;
+            font-size: 1.2rem;
+        }
+
+        .links-section h2 {
+            color: var(--color-primary);
+            font-size: 1.8rem;
+            margin: 20px 0 10px;
+            border-bottom: 2px solid var(--color-primary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .highlight {
+            color: var(--color-secondary);
+            font-weight: bold;
+            font-size: 1.8em;
+            margin-top: 30px;
+            animation: pulse 1.5s infinite;
+        }
+
         nav ul {
             list-style: none;
             padding: 0;
-            margin: 20px 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+            margin: 0;
         }
 
         nav li {
-            margin: 0;
+            margin: 15px 0;
         }
 
         nav a {
@@ -107,55 +107,26 @@
             padding: 10px 20px;
             border: 2px solid var(--color-link-bg);
             border-radius: 5px;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
             font-size: 1rem;
-            text-align: center;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         nav a:hover, nav a:focus {
             background-color: var(--color-link-hover);
             color: #ffffff;
-            outline: none;
         }
 
-        /* 注目メッセージのスタイル */
-        .highlight {
-            color: var(--color-secondary);
-            font-weight: bold;
-            font-size: 1.8em;
-            margin-top: 30px;
-            animation: pulse 1.5s infinite;
-            text-align: center;
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
         }
 
-        /* 拡大縮小アニメーション */
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        /* ダークテーマ時のリンクスタイル */
-        body.dark-theme a {
-            color: var(--color-link-bg);
-            border-color: var(--color-link-bg);
-        }
-
-        body.dark-theme a:hover, body.dark-theme a:focus {
-            background-color: var(--color-link-hover);
-            color: #121212;
-        }
-
-        /* テーマ切り替えボタンのスタイル */
         .btn-theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
             padding: 10px 15px;
-            background-color: var(--color-button-bg);
+            background-color: var(--color-link-bg);
             color: #fff;
             border: none;
             border-radius: 50%;
@@ -166,101 +137,62 @@
         }
 
         .btn-theme-toggle:hover, .btn-theme-toggle:focus {
-            background-color: var(--color-button-hover);
+            background-color: var(--color-link-hover);
             transform: rotate(20deg);
-            outline: none;
         }
 
-        /* フッターのスタイル */
-        footer {
-            width: 100%;
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: var(--color-text);
-        }
-
-        /* レスポンシブデザイン */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-                border-bottom: 2px solid var(--color-primary);
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-
-            .btn-theme-toggle {
-                padding: 8px 12px;
-                font-size: 1rem;
-            }
-
-            nav a {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-            }
-
-            .highlight {
-                font-size: 1.5em;
-            }
-
-            .container {
-                padding: 10px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* アニメーションを減らすユーザー向け設定 */
-        @media (prefers-reduced-motion: reduce) {
-            .highlight {
-                animation: none;
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- テーマ切り替えボタン -->
-        <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
+    <h1>くくるからのお知らせ</h1>
 
-        <header>
-            <h1>くくるからのお知らせ</h1>
-        </header>
-        <main>
-            <p style="text-align: center;">いつもお世話になっております。</p>
-            <p style="text-align: center;">このページでは、くくるからの最新のお知らせをお届けします。</p>
-
-            <!-- ナビゲーション -->
-            <nav aria-label="主要ナビゲーション">
-                <ul>
-                    <li><a href="search/" title="現場検索ツールを利用する">クルーの皆様へ（現場検索ツール）</a></li>
-                    <li><a href="new-years-holidays/" title="年末年始のお知らせを見る">年末年始のお知らせ（✨特別手当の期間拡大✨）</a></li>
-                    <li><a href="shift/" title="1月前半のシフトを提出する">1月前半のシフト提出願い</a></li>
-                    <li><a href="baggage/" title="清掃中のゲスト様荷物先置きについて確認">清掃中のゲスト様荷物先置きに関して</a></li>
-                    <li><a href="guest_house_manual_crew_cleaning_manual/" title="ハウスマニュアルと清掃マニュアル">ハウスマニュアルと清掃マニュアル</a></li>
-                    <li><a href="example/" title="事例">清掃事例</a></li>
-                </ul>
-            </nav>
-
-            <!-- 注目メッセージ -->
-            <p class="highlight">随時更新中！！乞うご期待！！</p>
-        </main>
-        <footer>
-            <p>&copy; 2024 くくるクリーニング</p>
-        </footer>
+    <!-- リンク集全体 -->
+    <div class="links-section">
+        <p>いつもお世話になっております。このページでは、くくるからの最新のお知らせをお届けします。</p>
+        <h2>お知らせリンク集</h2>
+        <nav aria-label="主要ナビゲーション">
+            <ul>
+                <li><a href="search/" title="現場検索ツールを利用する">クルーの皆様へ（現場検索ツール）</a></li>
+                <li><a href="new-years-holidays/" title="年末年始のお知らせを見る">年末年始のお知らせ（✨特別手当の期間拡大✨）</a></li>
+                <li><a href="shift/" title="1月前半のシフトを提出する">1月前半のシフト提出願い</a></li>
+                <li><a href="baggage/" title="清掃中のゲスト様荷物先置きについて確認">清掃中のゲスト様荷物先置きに関して</a></li>
+                <li><a href="guest_house_manual_crew_cleaning_manual/" title="ハウスマニュアルと清掃マニュアル">ハウスマニュアルと清掃マニュアル</a></li>
+                <li><a href="example/" title="事例">清掃事例</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <!-- JavaScript -->
+    <p class="highlight">随時更新中！！乞うご期待！！</p>
+
+    <footer>&copy; 2024 くくるクリーニング</footer>
+
     <script>
-        // テーマ切り替え関数
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
-            // ユーザーのテーマ選好を保存
-            if (document.body.classList.contains('dark-theme')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
+            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
         }
 
-        // ページ読み込み時にテーマを設定
-        window.addEventListener('DOMContentLoaded', (event) => {
+        window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-theme');
