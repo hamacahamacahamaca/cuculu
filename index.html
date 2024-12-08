@@ -57,6 +57,21 @@
             padding: 20px;
         }
 
+        .links-section p {
+            margin: 0 0 30px;
+            font-size: 1.4rem;
+            line-height: 1.8;
+        }
+
+        .links-section h2 {
+            color: var(--color-primary);
+            font-size: 2rem;
+            margin: 30px 0 20px;
+            border-bottom: 2px solid var(--color-primary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -83,6 +98,23 @@
             color: #ffffff;
         }
 
+        .highlight {
+            color: var(--color-secondary);
+            font-weight: bold;
+            font-size: 1.8rem;
+            margin-top: 40px;
+            animation: pulse 1.5s infinite; /* アニメーション効果を付与 */
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
         footer {
             margin-top: 40px;
             font-size: 1rem;
@@ -106,6 +138,8 @@
             </ul>
         </nav>
     </div>
+
+    <p class="highlight">随時更新中！！<br>乞うご期待！！</p>
 
     <footer>&copy; 2024 くくるクリーニング</footer>
 </body>
