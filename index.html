@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>くくるからのお知らせ</title>
-    <!-- 省略されたメタタグとリンク -->
-
     <style>
         :root {
             --color-background: #f9f9f9;
@@ -17,18 +15,6 @@
             --color-card-bg: #ffffff;
             --color-card-shadow: rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s;
-        }
-
-        /* ダークテーマ用のスタイル */
-        body.dark-theme {
-            --color-background: #121212;
-            --color-text: #ffffff;
-            --color-primary: #80d8ff;
-            --color-secondary: #ff5252;
-            --color-link-bg: #80d8ff;
-            --color-link-hover: #4fc3f7;
-            --color-card-bg: #1e1e1e;
-            --color-card-shadow: rgba(255, 255, 255, 0.1);
         }
 
         body {
@@ -66,32 +52,9 @@
         }
 
         .narrow-section {
-            max-width: 600px; /* 横幅を狭く設定 */
-            width: 90%; /* ウィンドウ幅に応じた割合指定 */
-            padding: 20px; /* 必要に応じて余白を調整 */
-        }
-
-        .links-section p {
-            margin: 0 0 30px;
-            font-size: 1.4rem;
-            line-height: 1.8;
-        }
-
-        .links-section h2 {
-            color: var(--color-primary);
-            font-size: 2rem;
-            margin: 30px 0 20px;
-            border-bottom: 2px solid var(--color-primary);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .highlight {
-            color: var(--color-secondary);
-            font-weight: bold;
-            font-size: 1.8rem;
-            margin-top: 40px;
-            animation: pulse 1.5s infinite;
+            max-width: 600px;
+            width: 90%;
+            padding: 20px;
         }
 
         nav ul {
@@ -108,10 +71,10 @@
             color: var(--color-link-bg);
             text-decoration: none;
             display: inline-block;
-            padding: 20px 30px;
-            border: 3px solid var(--color-link-bg);
-            border-radius: 10px;
-            font-size: 1.2rem;
+            padding: 10px 15px; /* 内側の余白を小さく */
+            border: 2px solid var(--color-link-bg); /* 枠線を細く */
+            border-radius: 8px; /* 角を丸く */
+            font-size: 1rem; /* フォントサイズを小さく */
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
@@ -124,58 +87,9 @@
             margin-top: 40px;
             font-size: 1rem;
         }
-
-        .btn-theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 12px 18px;
-            background-color: var(--color-link-bg);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: background-color var(--transition-speed), transform 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
-            background-color: var(--color-link-hover);
-            transform: rotate(20deg);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        /* 追加: レスポンシブデザイン */
-        @media (max-width: 600px) {
-            .narrow-section {
-                max-width: 90%; /* スマホ向けにさらに狭める */
-                padding: 15px;
-            }
-        }
     </style>
 </head>
 <body>
-    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
     <h1>くくるからのお知らせ</h1>
 
     <div class="links-section narrow-section">
@@ -193,22 +107,6 @@
         </nav>
     </div>
 
-    <p class="highlight">随時更新中！！<br>乞うご期待！！</p>
-
     <footer>&copy; 2024 くくるクリーニング</footer>
-
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-theme');
-            }
-        });
-    </script>
 </body>
 </html>
