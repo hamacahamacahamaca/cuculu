@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>くくるからのお知らせ</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <!-- Google Fontsの追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesomeの追加（アイコン使用のため） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- 内部CSSの追加 -->
     <style>
+        /* CSS変数の定義 */
         :root {
             --color-background: #f9f9f9;
             --color-text: #333333;
@@ -15,10 +30,24 @@
             --color-card-bg: #ffffff;
             --color-card-shadow: rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s;
+            --font-family: 'Roboto', sans-serif;
         }
 
+        /* ダークテーマ用の変数 */
+        body.dark-theme {
+            --color-background: #121212;
+            --color-text: #ffffff;
+            --color-primary: #80d8ff;
+            --color-secondary: #ff5252;
+            --color-link-bg: #80d8ff;
+            --color-link-hover: #4fc3f7;
+            --color-card-bg: #1e1e1e;
+            --color-card-shadow: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 基本スタイル */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: var(--font-family);
             background-color: var(--color-background);
             color: var(--color-text);
             margin: 0;
@@ -36,6 +65,9 @@
             color: var(--color-primary);
             font-size: 2.5rem;
             margin-bottom: 40px;
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
         .links-section {
@@ -124,6 +156,29 @@
             font-size: 1rem;
         }
 
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: var(--color-link-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
+            background-color: var(--color-link-hover);
+            transform: rotate(20deg);
+            outline: none;
+        }
+
         /* レスポンシブデザイン */
         @media (max-width: 600px) {
             h1 {
@@ -143,11 +198,20 @@
                 font-size: 1rem;
                 padding: 8px 16px;
             }
+
+            .btn-theme-toggle {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
         }
 
         /* アニメーションを減らすユーザー向け設定 */
         @media (prefers-reduced-motion: reduce) {
             .links-section {
+                animation: none;
+            }
+
+            .highlight {
                 animation: none;
             }
         }
@@ -160,6 +224,11 @@
     </style>
 </head>
 <body>
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">
+        🌓
+    </button>
+
     <h1>くくるからの<br>お知らせ</h1>
 
     <div class="links-section narrow-section">
@@ -167,12 +236,12 @@
         <h2>お知らせリンク集</h2>
         <nav aria-label="主要ナビゲーション">
             <ul>
-                <li><a href="search/" title="現場検索ツールを利用する">クルーの皆様へ<br>（現場検索ツール）</a></li>
-                <li><a href="new-years-holidays/" title="年末年始のお知らせを見る">年末年始のお知らせ<br>（✨特別手当の期間拡大✨）</a></li>
-                <li><a href="shift/" title="1月前半のシフトを提出する">1月前半のシフト提出願い</a></li>
-                <li><a href="baggage/" title="清掃中のゲスト様荷物先置きについて確認">清掃中のゲスト様荷物先置きに関して</a></li>
-                <li><a href="guest_house_manual_crew_cleaning_manual/" title="ハウスマニュアルと清掃マニュアル">ハウスマニュアルと清掃マニュアル</a></li>
-                <li><a href="example/" title="事例">清掃事例</a></li>
+                <li><a href="search/" title="現場検索ツールを利用する"><i class="fas fa-search"></i> クルーの皆様へ<br>（現場検索ツール）</a></li>
+                <li><a href="new-years-holidays/" title="年末年始のお知らせを見る"><i class="fas fa-calendar-alt"></i> 年末年始のお知らせ<br>（✨特別手当の期間拡大✨）</a></li>
+                <li><a href="shift/" title="1月前半のシフトを提出する"><i class="fas fa-calendar-check"></i> 1月前半のシフト提出願い</a></li>
+                <li><a href="baggage/" title="清掃中のゲスト様荷物先置きについて確認"><i class="fas fa-suitcase-rolling"></i> 清掃中のゲスト様荷物先置きに関して</a></li>
+                <li><a href="guest_house_manual_crew_cleaning_manual/" title="ハウスマニュアルと清掃マニュアル"><i class="fas fa-book"></i> ハウスマニュアルと清掃マニュアル</a></li>
+                <li><a href="example/" title="事例"><i class="fas fa-clipboard-list"></i> 清掃事例</a></li>
             </ul>
         </nav>
     </div>
@@ -180,5 +249,27 @@
     <p class="highlight">随時更新中！！<br>乞うご期待！！</p>
 
     <footer>&copy; 2024 くくるクリーニング</footer>
+
+    <!-- JavaScript -->
+    <script>
+        // テーマ切り替え関数
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            // ユーザーのテーマ選好を保存
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // ページ読み込み時にテーマを設定
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        });
+    </script>
 </body>
 </html>
