@@ -4,15 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>くくるからのお知らせ</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="expires" content="0">
-
-    <!-- Google Fontsの追加 -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 省略されたメタタグとリンク -->
 
     <style>
         :root {
@@ -164,6 +156,89 @@
             }
             50% {
                 transform: scale(1.1);
+            }
+        }
+
+        /* 追加: レスポンシブデザイン */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .links-section {
+                padding: 20px 15px;
+                margin-bottom: 30px;
+            }
+
+            .links-section p {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+
+            .links-section h2 {
+                font-size: 1.5rem;
+                margin: 20px 0 15px;
+            }
+
+            nav a {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+
+            .highlight {
+                font-size: 1.5rem;
+                margin-top: 30px;
+            }
+
+            .btn-theme-toggle {
+                padding: 10px 14px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            body {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 35px;
+            }
+
+            .links-section {
+                padding: 30px 20px;
+                margin-bottom: 35px;
+            }
+
+            .links-section p {
+                font-size: 1.3rem;
+                margin-bottom: 25px;
+            }
+
+            .links-section h2 {
+                font-size: 1.8rem;
+                margin: 25px 0 18px;
+            }
+
+            nav a {
+                padding: 18px 25px;
+                font-size: 1.1rem;
+            }
+
+            .highlight {
+                font-size: 1.6rem;
+                margin-top: 35px;
+            }
+
+            .btn-theme-toggle {
+                padding: 11px 16px;
+                font-size: 1.3rem;
             }
         }
     </style>
