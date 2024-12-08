@@ -27,6 +27,18 @@
             --transition-speed: 0.3s;
         }
 
+        /* ダークテーマ用のスタイル */
+        body.dark-theme {
+            --color-background: #121212;
+            --color-text: #ffffff;
+            --color-primary: #80d8ff;
+            --color-secondary: #ff5252;
+            --color-link-bg: #80d8ff;
+            --color-link-hover: #4fc3f7;
+            --color-card-bg: #1e1e1e;
+            --color-card-shadow: rgba(255, 255, 255, 0.1);
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--color-background);
@@ -58,6 +70,7 @@
             animation: fadeIn 1.5s ease-in;
             text-align: center;
             margin-bottom: 40px;
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
         }
 
         .links-section p {
@@ -132,44 +145,6 @@
         .btn-theme-toggle:hover, .btn-theme-toggle:focus {
             background-color: var(--color-link-hover);
             transform: rotate(20deg);
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2rem;
-                margin-bottom: 30px;
-            }
-
-            .links-section {
-                padding: 30px 20px;
-            }
-
-            .links-section p {
-                font-size: 1.2rem;
-            }
-
-            .links-section h2 {
-                font-size: 1.6rem;
-            }
-
-            nav a {
-                font-size: 1rem;
-                padding: 15px 20px;
-            }
-
-            .highlight {
-                font-size: 1.5rem;
-                margin-top: 30px;
-            }
-
-            footer {
-                font-size: 0.9rem;
-                margin-top: 30px;
-            }
         }
 
         @keyframes fadeIn {
