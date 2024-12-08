@@ -32,7 +32,7 @@
             background-color: var(--color-background);
             color: var(--color-text);
             margin: 0;
-            padding: 20px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -45,31 +45,31 @@
         h1 {
             color: var(--color-primary);
             font-size: 2.5rem;
-            margin: 20px 0;
+            margin-bottom: 40px;
         }
 
         .links-section {
             background: var(--color-card-bg);
-            padding: 30px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px var(--color-card-shadow);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
             animation: fadeIn 1.5s ease-in;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .links-section p {
-            margin: 0 0 20px;
-            font-size: 1.2rem;
-            line-height: 1.6;
+            margin: 0 0 30px;
+            font-size: 1.4rem;
+            line-height: 1.8;
         }
 
         .links-section h2 {
             color: var(--color-primary);
-            font-size: 1.8rem;
-            margin: 20px 0 10px;
+            font-size: 2rem;
+            margin: 30px 0 20px;
             border-bottom: 2px solid var(--color-primary);
             display: inline-block;
             padding-bottom: 5px;
@@ -78,8 +78,8 @@
         .highlight {
             color: var(--color-secondary);
             font-weight: bold;
-            font-size: 1.6rem;
-            margin-top: 30px;
+            font-size: 1.8rem;
+            margin-top: 40px;
             animation: pulse 1.5s infinite;
         }
 
@@ -90,17 +90,17 @@
         }
 
         nav li {
-            margin: 15px 0;
+            margin: 20px 0;
         }
 
         nav a {
             color: var(--color-link-bg);
             text-decoration: none;
             display: inline-block;
-            padding: 15px 20px;
-            border: 2px solid var(--color-link-bg);
-            border-radius: 8px;
-            font-size: 1.1rem;
+            padding: 20px 30px;
+            border: 3px solid var(--color-link-bg);
+            border-radius: 10px;
+            font-size: 1.2rem;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
@@ -110,23 +110,23 @@
         }
 
         footer {
-            margin-top: 20px;
-            font-size: 0.9rem;
+            margin-top: 40px;
+            font-size: 1rem;
         }
 
         .btn-theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 10px 15px;
+            padding: 12px 18px;
             background-color: var(--color-link-bg);
             color: #fff;
             border: none;
             border-radius: 50%;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             cursor: pointer;
             transition: background-color var(--transition-speed), transform 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .btn-theme-toggle:hover, .btn-theme-toggle:focus {
@@ -135,31 +135,40 @@
         }
 
         @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-                margin: 10px 0;
-            }
-
-            .links-section {
+            body {
                 padding: 20px;
             }
 
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .links-section {
+                padding: 30px 20px;
+            }
+
             .links-section p {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
 
             .links-section h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
 
             nav a {
                 font-size: 1rem;
-                padding: 10px 15px;
+                padding: 15px 20px;
             }
 
             .highlight {
-                font-size: 1.4rem;
-                margin-top: 20px;
+                font-size: 1.5rem;
+                margin-top: 30px;
+            }
+
+            footer {
+                font-size: 0.9rem;
+                margin-top: 30px;
             }
         }
 
