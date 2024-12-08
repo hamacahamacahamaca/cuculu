@@ -32,6 +32,7 @@
             background-color: var(--color-background);
             color: var(--color-text);
             margin: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,16 +40,6 @@
             min-height: 100vh;
             text-align: center;
             transition: background-color var(--transition-speed), color var(--transition-speed);
-        }
-
-        body.dark-theme {
-            --color-background: #121212;
-            --color-text: #ffffff;
-            --color-primary: #80d8ff;
-            --color-link-bg: #80d8ff;
-            --color-link-hover: #4fc3f7;
-            --color-card-bg: #1e1e1e;
-            --color-card-shadow: rgba(255, 255, 255, 0.1);
         }
 
         h1 {
@@ -59,18 +50,20 @@
 
         .links-section {
             background: var(--color-card-bg);
-            padding: 20px;
+            padding: 30px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
             animation: fadeIn 1.5s ease-in;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         .links-section p {
             margin: 0 0 20px;
             font-size: 1.2rem;
+            line-height: 1.6;
         }
 
         .links-section h2 {
@@ -85,7 +78,7 @@
         .highlight {
             color: var(--color-secondary);
             font-weight: bold;
-            font-size: 1.8em;
+            font-size: 1.6rem;
             margin-top: 30px;
             animation: pulse 1.5s infinite;
         }
@@ -104,10 +97,10 @@
             color: var(--color-link-bg);
             text-decoration: none;
             display: inline-block;
-            padding: 10px 20px;
+            padding: 15px 20px;
             border: 2px solid var(--color-link-bg);
-            border-radius: 5px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
@@ -141,6 +134,35 @@
             transform: rotate(20deg);
         }
 
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                margin: 10px 0;
+            }
+
+            .links-section {
+                padding: 20px;
+            }
+
+            .links-section p {
+                font-size: 1rem;
+            }
+
+            .links-section h2 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+
+            .highlight {
+                font-size: 1.4rem;
+                margin-top: 20px;
+            }
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -166,7 +188,6 @@
     <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
     <h1>くくるからのお知らせ</h1>
 
-    <!-- リンク集全体 -->
     <div class="links-section">
         <p>いつもお世話になっております。このページでは、くくるからの最新のお知らせをお届けします。</p>
         <h2>お知らせリンク集</h2>
