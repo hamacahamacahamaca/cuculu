@@ -9,6 +9,13 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="0">
 
+    <!-- Google Fontsの追加 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesomeの追加（アイコン使用のため） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- 内部CSSの追加 -->
     <style>
         /* CSS変数の定義 */
         :root {
@@ -18,9 +25,11 @@
             --color-secondary: #ff5252; /* 明るい赤 */
             --color-button-bg: #d9534f;
             --color-button-hover: #c9302c;
+            --color-link-bg: #d9534f;
+            --color-link-hover: #c9302c;
             --color-card-bg: #ffffff;
             --color-card-shadow: rgba(0, 0, 0, 0.1);
-            --font-family: Arial, sans-serif;
+            --font-family: 'Roboto', sans-serif;
             --transition-speed: 0.3s;
         }
 
@@ -34,8 +43,10 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* 水平方向の中央揃え */
+            justify-content: center; /* 垂直方向の中央揃え */
             min-height: 100vh;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         /* ヘッダー */
@@ -54,7 +65,39 @@
             display: inline-block;
         }
 
-        /* コンテナ */
+        /* テーマ切り替えボタンのスタイル（必要に応じて追加） */
+        .btn-theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: var(--color-button-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
+            background-color: var(--color-button-hover);
+            transform: rotate(20deg);
+            outline: none;
+        }
+
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* 親の高さを継承 */
+        }
+
+        /* コンテナのスタイル */
         .container {
             background: var(--color-card-bg);
             padding: 30px;
@@ -62,10 +105,17 @@
             box-shadow: 0 2px 4px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
-            text-align: center;
+            text-align: center; /* 文字を中央揃え */
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
+            margin: 0 auto; /* 水平中央揃え */
         }
+
+        /* テーマ切り替えがある場合のスタイル（必要に応じて削除） */
+        /* .dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+        } */
 
         /* テキストスタイル */
         p {
@@ -114,7 +164,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--color-button-bg);
+            background-color: var(--color-link-bg);
             color: #fff;
             text-decoration: none;
             padding: 10px 20px;
@@ -122,10 +172,12 @@
             font-size: 1.2rem;
             transition: background-color var(--transition-speed);
             box-shadow: 0 2px 4px var(--color-card-shadow);
+            gap: 8px;
         }
 
-        .button:hover {
-            background-color: var(--color-button-hover);
+        .button:hover, .button:focus {
+            background-color: var(--color-link-hover);
+            outline: none;
         }
 
         /* フッター */
@@ -134,6 +186,46 @@
             font-size: 0.9rem;
             text-align: center;
             color: var(--color-text);
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            .btn-theme-toggle {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p, .button {
+                font-size: 1rem;
+            }
+
+            .button {
+                padding: 8px 16px;
+            }
+
+            .buttons {
+                gap: 10px;
+                margin-top: 20px;
+            }
+        }
+
+        /* フォーカススタイルの強調 */
+        a:focus, .button:focus, .btn-theme-toggle:focus {
+            outline: 2px dashed var(--color-primary);
+            outline-offset: 4px;
         }
 
         /* アニメーション */
@@ -150,26 +242,39 @@
     </style>
 </head>
 <body>
+    <!-- テーマ切り替えボタン（必要に応じて削除） -->
+    <!-- <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">
+        🌓
+    </button> -->
+
     <header>
         <h1>喫煙に関する注意事項</h1>
     </header>
     <main>
         <div class="container">
-            <p>お疲れ様です。</p>
-            <p>
-                ゲスト様より施設共用部にてタバコを吸っているスタッフがいるので注意して欲しいとのメッセージをいただきました<span class="emoji">😱</span>
-            </p>
-            <p>
-                タバコが苦手なゲスト様やご近所様の印象、火事の危険性がございますので、屋内外問わず施設周辺での喫煙は禁止となります<span class="emoji">🥺</span>
-            </p>
+            <section>
+                <p>お疲れ様です。</p>
+                <p>
+                    ゲスト様より施設共用部にてタバコを吸っているスタッフがいるので注意して欲しいとのメッセージをいただきました<span class="emoji">😱</span>
+                </p>
+                <p>
+                    タバコが苦手なゲスト様やご近所様の印象、火事の危険性がございますので、屋内外問わず施設周辺での喫煙は禁止となります<span class="emoji">🥺</span>
+                </p>
+            </section>
 
-            <h2>お願い</h2>
-            <ul>
-                <li>区の喫煙指定スペースでの喫煙をお願いいたします。</li>
-                <li>喫煙時には周囲の環境や安全に配慮をお願いします。</li>
-            </ul>
+            <section>
+                <h2>お願い</h2>
+                <ul>
+                    <li>区の喫煙指定スペースでの喫煙をお願いいたします。</li>
+                    <li>喫煙時には周囲の環境や安全に配慮をお願いします。</li>
+                </ul>
+                <p>ゲスト様や近隣住民の皆様が快適に過ごせるよう、何卒ご協力をお願いいたします<span class="emoji">🙏</span></p>
+            </section>
 
-            <p>ゲスト様や近隣住民の皆様が快適に過ごせるよう、何卒ご協力をお願いいたします<span class="emoji">🙏</span></p>
+            <section>
+                <h2>参考画像</h2>
+                <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/towel_stain.jpg?raw=true" alt="タオルのシミ画像">
+            </section>
 
             <!-- ボタンセクション -->
             <div class="buttons">
@@ -185,5 +290,29 @@
     <footer>
         <p>&copy; 2024 くくるクリーニング</p>
     </footer>
+
+    <!-- JavaScript（テーマ切り替えがある場合に追加） -->
+    <!--
+    <script>
+        // テーマ切り替え関数
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            // ユーザーのテーマ選好を保存
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // ページ読み込み時にテーマを設定
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        });
+    </script>
+    -->
 </body>
 </html>
