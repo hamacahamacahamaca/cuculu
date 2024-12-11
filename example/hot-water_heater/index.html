@@ -11,7 +11,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="0">
 
-
     <!-- Google Fontsの追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
@@ -53,13 +52,15 @@
         /* 基本スタイル */
         body {
             font-family: var(--font-family);
+            line-height: 1.6;
             background-color: var(--color-background);
             color: var(--color-text);
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* 水平方向の中央揃え */
+            justify-content: center; /* 垂直方向の中央揃え */
             min-height: 100vh;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
@@ -96,9 +97,20 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-theme-toggle:hover {
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
             background-color: var(--color-button-hover);
             transform: rotate(20deg);
+            outline: none;
+        }
+
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* 親の高さを継承 */
         }
 
         /* コンテナのスタイル */
@@ -109,11 +121,19 @@
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
-            text-align: center;
+            text-align: center; /* 文字を中央揃え */
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
+            margin: 0 auto; /* 水平中央揃え */
         }
 
+        /* テーマ切り替えがある場合のスタイル */
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+        }
+
+        /* テキストスタイル */
         p {
             line-height: 1.8;
             margin: 10px 0;
@@ -175,8 +195,15 @@
             gap: 8px;
         }
 
-        .button:hover {
+        .button:hover, .button:focus {
             background-color: var(--color-link-hover);
+            outline: none;
+        }
+
+        /* フォーカススタイルの強調 */
+        a:focus, .button:focus, .btn-theme-toggle:focus {
+            outline: 2px dashed var(--color-primary);
+            outline-offset: 4px;
         }
 
         /* フッターのスタイル */
@@ -186,6 +213,33 @@
             margin-top: 40px;
             font-size: 0.9em;
             color: var(--color-text);
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            .btn-theme-toggle {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                border-bottom: 1px solid var(--color-primary);
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
         }
 
         /* アニメーション */
@@ -205,24 +259,30 @@
 
     <main>
         <div class="container">
-            <p>ゲスト様よりお湯が出ないとのお問い合わせがありました。</p>
+            <section>
+                <p>ゲスト様よりお湯が出ないとのお問い合わせがありました。</p>
+            </section>
 
-            <h2>お願い</h2>
-            <div class="requests">
-                <p>給湯器の電源がONになっていることを必ずご確認ください。</p>
-                <p>清掃時にお湯が出ているか確認を徹底してください。</p>
-                <p>清掃完了報告アルバムへ、給湯器の「42度設定」の画像を必ず添付してください。</p>
-            </div>
+            <section>
+                <h2>お願い</h2>
+                <div class="requests">
+                    <p>給湯器の電源がONになっていることを必ずご確認ください。</p>
+                    <p>清掃時にお湯が出ているか確認を徹底してください。</p>
+                    <p>清掃完了報告アルバムへ、給湯器の「42度設定」の画像を必ず添付してください。</p>
+                </div>
+            </section>
 
-            <h2>参考画像</h2>
-            <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/hot-water_heater.jpg?raw=true" alt="給湯器42度設定画像">
+            <section>
+                <h2>参考画像</h2>
+                <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/hot-water_heater.jpg?raw=true" alt="給湯器42度設定画像">
+            </section>
 
             <p class="important">ゲスト様が快適に過ごせるよう、ご協力をよろしくお願いいたします。🙏</p>
 
             <!-- ボタンセクション -->
             <div class="buttons">
-                <a href="/cuculu/example/" class="button">事例に戻る</a>
-                <a href="/cuculu/" class="button">ホームに戻る</a>
+                <a href="/cuculu/example/" class="button"><i class="fas fa-clipboard-list"></i> 事例に戻る</a>
+                <a href="/cuculu/" class="button"><i class="fas fa-home"></i> ホームに戻る</a>
             </div>
         </div>
     </main>
