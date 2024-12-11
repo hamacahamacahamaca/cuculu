@@ -65,7 +65,8 @@
             display: inline-block;
         }
 
-        /* テーマ切り替えボタンのスタイル（必要に応じて追加） */
+        /* テーマ切り替えボタンのスタイル（必要に応じてコメントアウト） */
+        /* 
         .btn-theme-toggle {
             position: fixed;
             top: 20px;
@@ -86,6 +87,7 @@
             transform: rotate(20deg);
             outline: none;
         }
+        */
 
         /* メインコンテンツのスタイル */
         main {
@@ -110,12 +112,6 @@
             animation: fadeIn 1.5s ease-in;
             margin: 0 auto; /* 水平中央揃え */
         }
-
-        /* テーマ切り替えがある場合のスタイル（必要に応じて削除） */
-        /* .dark-theme .container {
-            background: var(--color-card-bg);
-            box-shadow: 0 4px 8px var(--color-card-shadow);
-        } */
 
         /* テキストスタイル */
         p {
@@ -180,6 +176,12 @@
             outline: none;
         }
 
+        /* フォーカススタイルの強調 */
+        a:focus, .button:focus /* , .btn-theme-toggle:focus */ {
+            outline: 2px dashed var(--color-primary);
+            outline-offset: 4px;
+        }
+
         /* フッター */
         footer {
             margin-top: 40px;
@@ -195,10 +197,10 @@
                 border-bottom: 2px solid var(--color-primary);
             }
 
-            .btn-theme-toggle {
+            /* .btn-theme-toggle {
                 padding: 8px 12px;
                 font-size: 1rem;
-            }
+            } */
 
             .container {
                 padding: 20px;
@@ -222,12 +224,6 @@
             }
         }
 
-        /* フォーカススタイルの強調 */
-        a:focus, .button:focus, .btn-theme-toggle:focus {
-            outline: 2px dashed var(--color-primary);
-            outline-offset: 4px;
-        }
-
         /* アニメーション */
         @keyframes fadeIn {
             from {
@@ -242,10 +238,12 @@
     </style>
 </head>
 <body>
-    <!-- テーマ切り替えボタン（必要に応じて削除） -->
-    <!-- <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">
+    <!-- テーマ切り替えボタン（必要に応じてコメントアウト） -->
+    <!-- 
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">
         🌓
-    </button> -->
+    </button>
+    -->
 
     <header>
         <h1>喫煙に関する注意事項</h1>
@@ -269,11 +267,6 @@
                     <li>喫煙時には周囲の環境や安全に配慮をお願いします。</li>
                 </ul>
                 <p>ゲスト様や近隣住民の皆様が快適に過ごせるよう、何卒ご協力をお願いいたします<span class="emoji">🙏</span></p>
-            </section>
-
-            <section>
-                <h2>参考画像</h2>
-                <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/towel_stain.jpg?raw=true" alt="タオルのシミ画像">
             </section>
 
             <!-- ボタンセクション -->
