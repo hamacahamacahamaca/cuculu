@@ -22,6 +22,8 @@
             --color-highlight-bg: #fffbe6; /* 淡い黄色 */
             --color-button-bg: #0073e6;
             --color-button-hover: #005bb5;
+            --color-link-bg: #0073e6;
+            --color-link-hover: #005bb5;
             --color-card-bg: #ffffff;
             --color-card-shadow: rgba(0, 0, 0, 0.1);
             --font-family: 'Roboto', sans-serif;
@@ -31,13 +33,15 @@
         /* 基本スタイル */
         body {
             font-family: var(--font-family);
+            line-height: 1.6;
             background-color: var(--color-background);
             color: var(--color-text);
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* 水平方向の中央揃え */
+            justify-content: center; /* 垂直方向の中央揃え */
             min-height: 100vh;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
@@ -66,10 +70,13 @@
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
+            text-align: center; /* 文字を中央揃え */
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
-            text-align: center;
+            margin: 0 auto; /* 水平中央揃え */
         }
 
+        /* テキストスタイル */
         p {
             line-height: 1.8;
             margin: 15px 0;
@@ -106,7 +113,7 @@
         }
 
         .button {
-            background-color: var(--color-button-bg);
+            background-color: var(--color-link-bg);
             color: #fff;
             text-decoration: none;
             padding: 12px 25px;
@@ -119,8 +126,15 @@
             gap: 8px;
         }
 
-        .button:hover {
-            background-color: var(--color-button-hover);
+        .button:hover, .button:focus {
+            background-color: var(--color-link-hover);
+            outline: none;
+        }
+
+        /* フォーカススタイルの強調 */
+        a:focus, .button:focus {
+            outline: 2px dashed var(--color-primary);
+            outline-offset: 4px;
         }
 
         /* フッター */
@@ -132,6 +146,28 @@
             color: var(--color-text);
         }
 
+        /* レスポンシブデザイン */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                border-bottom: 1px solid var(--color-primary);
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+
         /* アニメーション */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -141,7 +177,7 @@
 </head>
 <body>
     <header>
-        <h1>共有部の清掃について</h1>
+        <h1>共用部清掃連絡</h1>
     </header>
     <main>
         <div class="container">
