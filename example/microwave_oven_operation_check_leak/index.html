@@ -8,8 +8,12 @@
     <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="0">
+
     <!-- Google Fontsの追加 -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesomeの追加 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- 内部CSS -->
     <style>
@@ -21,22 +25,40 @@
             --color-secondary: #d9534f; /* 赤色 */
             --color-button-bg: #4CAF50;
             --color-button-hover: #388E3C;
+            --color-link-bg: #4CAF50;
+            --color-link-hover: #388E3C;
             --color-card-bg: #ffffff;
             --color-card-shadow: rgba(0, 0, 0, 0.1);
             --font-family: 'Roboto', sans-serif;
             --transition-speed: 0.3s;
         }
 
+        /* ダークテーマ用の変数 */
+        body.dark-theme {
+            --color-background: #121212;
+            --color-text: #ffffff;
+            --color-primary: #ff5252;
+            --color-secondary: #ff4081;
+            --color-button-bg: #555555;
+            --color-button-hover: #333333;
+            --color-link-bg: #ff5252;
+            --color-link-hover: #e040fb;
+            --color-card-bg: #1e1e1e;
+            --color-card-shadow: rgba(255, 255, 255, 0.1);
+        }
+
         /* 基本スタイル */
         body {
             font-family: var(--font-family);
+            line-height: 1.6;
             background-color: var(--color-background);
             color: var(--color-text);
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* 水平方向の中央揃え */
+            justify-content: center; /* 垂直方向の中央揃え */
             min-height: 100vh;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
@@ -57,43 +79,89 @@
             display: inline-block;
         }
 
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: var(--color-button-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
+            background-color: var(--color-button-hover);
+            transform: rotate(20deg);
+            outline: none;
+        }
+
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* 親の高さを継承 */
+        }
+
+        /* コンテナのスタイル */
         .container {
             background: var(--color-card-bg);
-            padding: 20px;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
-            text-align: center;
+            text-align: center; /* 文字を中央揃え */
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
+            margin: 0 auto; /* 水平中央揃え */
+        }
+
+        /* テーマ切り替えがある場合のスタイル */
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+        }
+
+        /* テキストスタイル */
+        p {
+            line-height: 1.8;
+            margin: 10px 0;
         }
 
         h2 {
             color: var(--color-primary);
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-            border-bottom: 1px solid var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--color-primary);
             padding-bottom: 5px;
         }
 
-        p {
-            line-height: 1.8;
-            margin: 10px 0;
+        .requests {
             text-align: center;
+            margin: 20px 0;
+        }
+
+        .requests p {
+            margin: 10px 0;
         }
 
         .important {
             color: var(--color-secondary);
             font-weight: bold;
+            margin-top: 20px;
         }
 
         .emoji {
             font-size: 1.2em;
-        }
-
-        .center-text {
-            text-align: center;
-            margin: 10px 0;
         }
 
         /* ボタンセクションのスタイル */
@@ -106,7 +174,7 @@
         }
 
         .button {
-            background-color: var(--color-button-bg);
+            background-color: var(--color-link-bg);
             color: #fff;
             text-decoration: none;
             padding: 12px 25px;
@@ -119,8 +187,15 @@
             gap: 8px;
         }
 
-        .button:hover {
-            background-color: var(--color-button-hover);
+        .button:hover, .button:focus {
+            background-color: var(--color-link-hover);
+            outline: none;
+        }
+
+        /* フォーカススタイルの強調 */
+        a:focus, .button:focus, .btn-theme-toggle:focus {
+            outline: 2px dashed var(--color-primary);
+            outline-offset: 4px;
         }
 
         /* フッターのスタイル */
@@ -132,6 +207,33 @@
             color: var(--color-text);
         }
 
+        /* レスポンシブデザイン */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+                border-bottom: 2px solid var(--color-primary);
+            }
+
+            .btn-theme-toggle {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                border-bottom: 1px solid var(--color-primary);
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+
         /* アニメーション */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -140,6 +242,9 @@
     </style>
 </head>
 <body>
+    <!-- テーマ切り替えボタン -->
+    <button onclick="toggleTheme()" class="btn-theme-toggle" aria-label="テーマ切り替え">🌓</button>
+
     <header>
         <h1>電化製品の動作確認について</h1>
     </header>
@@ -155,13 +260,13 @@
             <p class="important">電子レンジ動作確認漏れがありました<span class="emoji">😢</span></p>
 
             <h2>状況</h2>
-            <div class="center-text">
+            <div class="requests">
                 <p>オペレーションチームからの確認依頼事項の返信を漏れてしまった、、、、、</p>
                 <p>電源コードの確認漏れてしまった、、、、、</p>
             </div>
 
             <h2>今後の対策依頼</h2>
-            <div class="center-text">
+            <div class="requests">
                 <p>オペレーションチームには必ず返信お願いいたします！</p>
                 <p>電源コードは必ず確認しましょう！</p>
             </div>
@@ -171,13 +276,32 @@
 
             <!-- ボタンセクション -->
             <div class="buttons">
-                <a href="/cuculu/example/" class="button">事例に戻る</a>
-                <a href="/cuculu/" class="button">ホームに戻る</a>
+                <a href="/cuculu/example/" class="button"><i class="fas fa-clipboard-list"></i> 事例に戻る</a>
+                <a href="/cuculu/" class="button"><i class="fas fa-home"></i> ホームに戻る</a>
             </div>
         </div>
     </main>
     <footer>
         <p>&copy; 2024 くくるクリーニング</p>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+        });
+    </script>
 </body>
 </html>
