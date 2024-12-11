@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タオルのシミに関する注意事項</title>
+    <title>クルーの皆様へ（現場検索ツールページ）</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="robots" content="noindex, nofollow">
@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesomeの追加（アイコン使用のため） -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJ2QbkF4W9VjXQXSmYGKUk6Cps4Z19F1Asx1Ea56Dtw9S+0lEGeY1f7Wz3Gsoxd/3uKmpGcB4fC9u+cKQ1f1FQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- 内部CSSの追加 -->
     <style>
@@ -23,12 +23,12 @@
         :root {
             --color-background: #f9f9f9;
             --color-text: #333333;
-            --color-primary: #d9534f; /* 赤色 */
-            --color-secondary: #ff5252; /* 明るい赤 */
-            --color-button-bg: #d9534f;
-            --color-button-hover: #c9302c;
-            --color-link-bg: #d9534f;
-            --color-link-hover: #c9302c;
+            --color-primary: #0073e6; /* 青色 */
+            --color-secondary: #d9534f; /* 赤色 */
+            --color-button-bg: #0073e6;
+            --color-button-hover: #005bb5;
+            --color-link-bg: #0073e6;
+            --color-link-hover: #005bb5;
             --color-card-bg: #ffffff;
             --color-card-shadow: rgba(0, 0, 0, 0.1);
             --font-family: 'Roboto', sans-serif;
@@ -39,12 +39,12 @@
         body.dark-theme {
             --color-background: #121212;
             --color-text: #ffffff;
-            --color-primary: #ff5252;
-            --color-secondary: #ff4081;
+            --color-primary: #80d8ff;
+            --color-secondary: #ff5252;
             --color-button-bg: #555555;
             --color-button-hover: #333333;
-            --color-link-bg: #ff5252;
-            --color-link-hover: #e040fb;
+            --color-link-bg: #80d8ff;
+            --color-link-hover: #4fc3f7;
             --color-card-bg: #1e1e1e;
             --color-card-shadow: rgba(255, 255, 255, 0.1);
         }
@@ -58,7 +58,8 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* 水平方向の中央揃え */
+            justify-content: center; /* 垂直方向の中央揃え */
             min-height: 100vh;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
@@ -70,7 +71,119 @@
             text-align: center;
         }
 
-                /* レスポンシブデザイン */
+        h1 {
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin: 0;
+            padding: 10px 0;
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
+        }
+
+        /* テーマ切り替えボタンのスタイル */
+        .btn-theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: var(--color-button-bg);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-theme-toggle:hover, .btn-theme-toggle:focus {
+            background-color: var(--color-button-hover);
+            transform: rotate(20deg);
+            outline: none;
+        }
+
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* 追加 */
+        }
+
+        .container {
+            background: var(--color-card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+            animation: fadeIn 1.5s ease-in;
+            margin: 0 auto; /* 追加 */
+        }
+
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+        }
+
+        p {
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+
+        a {
+            color: var(--color-link-bg);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            margin: 10px 0;
+        }
+
+        a:hover, a:focus {
+            background-color: var(--color-link-hover);
+            color: #ffffff;
+            border-radius: 5px;
+            padding: 5px 10px;
+            outline: none;
+        }
+
+        .home-link {
+            background-color: var(--color-link-bg);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color var(--transition-speed);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .home-link:hover, .home-link:focus {
+            background-color: var(--color-link-hover);
+            outline: none;
+        }
+
+        /* フッターのスタイル */
+        footer {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--color-text);
+        }
+
+        /* レスポンシブデザイン */
         @media (max-width: 600px) {
             h1 {
                 font-size: 2rem;
@@ -100,109 +213,14 @@
             }
         }
 
-        h1 {
-            color: var(--color-primary);
-            font-size: 2.5rem;
-            margin: 0;
-            padding: 10px 0;
-            border-bottom: 3px solid var(--color-primary);
-            display: inline-block;
+        /* アニメーションを減らすユーザー向け設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .container {
+                animation: none;
+            }
         }
 
-        /* テーマ切り替えボタンのスタイル */
-        .btn-theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            background-color: var(--color-button-bg);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color var(--transition-speed), transform 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-theme-toggle:hover {
-            background-color: var(--color-button-hover);
-            transform: rotate(20deg);
-        }
-
-        /* コンテナのスタイル */
-        .container {
-            background: var(--color-card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px var(--color-card-shadow);
-            max-width: 800px;
-            width: 100%;
-            text-align: center; /* 文字を中央揃え */
-            transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        p {
-            line-height: 1.8;
-            margin: 10px 0;
-        }
-
-        h2 {
-            color: var(--color-primary);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--color-primary);
-            padding-bottom: 5px;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            margin: 20px auto; /* 水平方向の中央揃え */
-            display: block;
-        }
-
-        /* ボタンセクションのスタイル */
-        .buttons {
-            display: flex;
-            flex-direction: column; /* ボタンを上下に並べる */
-            align-items: center; /* 中央揃え */
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--color-link-bg);
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 10px 5px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            transition: background-color var(--transition-speed);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            gap: 8px;
-        }
-
-        .button:hover {
-            background-color: var(--color-link-hover);
-        }
-
-        /* フッターのスタイル */
-        footer {
-            width: 100%;
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: var(--color-text);
-        }
-
-        /* アニメーション */
+        /* フェードインアニメーションの定義 */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -216,37 +234,38 @@
     </button>
 
     <header>
-        <h1>タオルのシミに関する注意事項</h1>
+        <h1>クルーの皆様へ</h1>
     </header>
     <main>
         <div class="container">
             <section>
-                <p>ゲスト様よりタオルにシミがあるとのご連絡を受けました<span class="emoji">💦</span></p>
-                <p>タオルに限らず、洗濯済みのリネンにもシミが取れきれず汚れている場合がございます<span class="emoji">😨</span></p>
+                <p>いつもご協力ありがとうございます。</p>
+                <p>
+                    今回、現場でのお困りごと、質問事項などを検索できるツールを作成しました。
+                    是非、今後活用していただければと思います。
+                </p>
+                <p>
+                    各物件ラインのノートのURLを追記してありますのでご確認お願い致します。
+                </p>
             </section>
 
+            <!-- リンク一覧 -->
             <section>
-                <h2>お願い</h2>
-                <div>
-                    <p>ベッドメイクやタオル設置をする際は、必ずシミや汚れがないかご確認をお願いいたします<span class="emoji">🥺</span></p>
-                </div>
-                <p><strong class="important">清潔な状態でゲスト様をお迎えするため、チェックの徹底をよろしくお願いいたします。</strong></p>
-            </section>
-
-            <section>
-                <h2>参考画像</h2>
-                <img src="https://github.com/hamacahamacahamaca/cuculu/blob/main/towel_stain.jpg?raw=true" alt="タオルのシミ画像">
-            </section>
-
-            <!-- ボタンセクション -->
-            <div class="buttons">
-                <a href="/cuculu/example/" class="button" title="事例に戻る">
-                    <i class="fas fa-clipboard-list"></i> 事例に戻る
+                <a href="https://tayori.com/q/cuculu-cleaning" target="_blank" rel="noopener noreferrer" title="現場検索ツールはこちら">
+                    <i class="fas fa-search"></i> 現場検索ツールはこちら
                 </a>
-                <a href="/cuculu/" class="button" title="ホームページに戻る">
+                <br>
+                <a href="http://tayori.com" target="_blank" rel="noopener noreferrer" title="Tayoriトップページ">
+                    <i class="fas fa-home"></i> Tayoriトップページ
+                </a>
+            </section>
+
+            <!-- ホームに戻る -->
+            <section>
+                <a href="/cuculu/" class="home-link" title="ホームページに戻る">
                     <i class="fas fa-home"></i> ホームに戻る
                 </a>
-            </div>
+            </section>
         </div>
     </main>
     <footer>
@@ -255,7 +274,6 @@
 
     <!-- JavaScript -->
     <script>
-        // テーマ切り替え関数
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
             // ユーザーのテーマ選好を保存
