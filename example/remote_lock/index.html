@@ -54,13 +54,15 @@
         /* 基本スタイル */
         body {
             font-family: var(--font-family);
+            line-height: 1.6;
             background-color: var(--color-background);
             color: var(--color-text);
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* 水平方向の中央揃え */
+            justify-content: center; /* 垂直方向の中央揃え */
             min-height: 100vh;
             transition: background-color var(--transition-speed), color var(--transition-speed);
         }
@@ -102,6 +104,16 @@
             transform: rotate(20deg);
         }
 
+        /* メインコンテンツのスタイル */
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* 親の高さを継承 */
+        }
+
         /* コンテナのスタイル */
         .container {
             background: var(--color-card-bg);
@@ -110,11 +122,19 @@
             box-shadow: 0 4px 8px var(--color-card-shadow);
             max-width: 800px;
             width: 100%;
-            text-align: center;
+            text-align: center; /* 文字を中央揃え */
             transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
             animation: fadeIn 1.5s ease-in;
+            margin: 0 auto; /* 水平中央揃え */
         }
 
+        /* テーマ切り替えがある場合のスタイル */
+        body.dark-theme .container {
+            background: var(--color-card-bg);
+            box-shadow: 0 4px 8px var(--color-card-shadow);
+        }
+
+        /* テキストスタイル */
         p {
             line-height: 1.8;
             margin: 10px 0;
@@ -160,8 +180,15 @@
             gap: 8px;
         }
 
-        .button:hover {
+        .button:hover, .button:focus {
             background-color: var(--color-link-hover);
+            outline: none;
+        }
+
+        /* フォーカススタイルの強調 */
+        a:focus, .button:focus, .btn-theme-toggle:focus {
+            outline: 2px dashed var(--color-primary);
+            outline-offset: 4px;
         }
 
         /* フッターのスタイル */
@@ -178,6 +205,11 @@
             h1 {
                 font-size: 2rem;
                 border-bottom: 2px solid var(--color-primary);
+            }
+
+            .btn-theme-toggle {
+                padding: 8px 12px;
+                font-size: 1rem;
             }
 
             .container {
@@ -221,7 +253,7 @@
                 <h2>目的</h2>
                 <p>施錠されていないことで他のゲストが誤って入室してしまうことを防ぐためです。</p>
                 <p>誤って入室してしまった場合、再清掃が必要になってしまいます😱</p>
-                <p><strong>必ず施錠確認をお願いいたします‼️</strong></p>
+                <p><strong class="important">必ず施錠確認をお願いいたします‼️</strong></p>
             </section>
 
             <section>
@@ -259,6 +291,7 @@
         // テーマ切り替え関数
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
+            // ユーザーのテーマ選好を保存
             if (document.body.classList.contains('dark-theme')) {
                 localStorage.setItem('theme', 'dark');
             } else {
@@ -266,6 +299,7 @@
             }
         }
 
+        // ページ読み込み時にテーマを設定
         window.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
